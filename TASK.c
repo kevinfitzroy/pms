@@ -7,13 +7,13 @@
 #define RUN 2
 #define ERROR 3
 
-#define OBSMAXVOL 35			// 35V报过压故障
-#define OBGMAXVOL 35			// 35V报过压故障
+// #define OBSMAXVOL 35			// 35V报过压故障
+// #define OBGMAXVOL 35			// 35V报过压故障
 #define VCUMAXVOL 420			//{390
-#define OBSAIMCUR 1.85			// 目标是单侧2A
-#define OBGAIMCUR 1.85			// 目标是单侧2A
-#define OBSMAXCUR OBSAIMCUR + 1 // OBSAIMCUR + 1   //3A报过流故障
-#define OBGMAXCUR OBGAIMCUR + 1 // OBGAIMCUR + 1   //3A报过流故障
+// #define OBSAIMCUR 1.85			// 目标是单侧2A
+// #define OBGAIMCUR 1.85			// 目标是单侧2A
+// #define OBSMAXCUR OBSAIMCUR + 1 // OBSAIMCUR + 1   //3A报过流故障
+// #define OBGMAXCUR OBGAIMCUR + 1 // OBGAIMCUR + 1   //3A报过流故障
 #define VCU_PumpEnable IO_P8_1	// 水泵控制
 #define VCU_FanEnable IO_P8_2	// 风扇控制
 
@@ -43,36 +43,36 @@ uword ErrorCode = 0;
 
 float LvDcMeaFilted = 0;
 
-sword OBG_PwmRef = 0;
-sword OBS_PwmRef = 0;
-sword OBG_PwmStep = 0;
-sword OBS_PwmStep = 0;
+// sword OBG_PwmRef = 0;
+// sword OBS_PwmRef = 0;
+// sword OBG_PwmStep = 0;
+// sword OBS_PwmStep = 0;
 
 float VolRefRamp = 0;
-float OBG_VolRef = 0;
-float OBS_VolRef = 0;
-float OBG_CurRef = 0;
-float OBS_CurRef = 0;
+// float OBG_VolRef = 0;
+// float OBS_VolRef = 0;
+// float OBG_CurRef = 0;
+// float OBS_CurRef = 0;
 
-float KP_Vol = 0;
-float KI_Vol = 0;
-float OBG_VolKI = 0;
-float OBS_VolKI = 0;
+// float KP_Vol = 0;
+// float KI_Vol = 0;
+// float OBG_VolKI = 0;
+// float OBS_VolKI = 0;
 
-float KP_Cur = 0;
-float KI_Cur = 0;
-float OBS_CurKI = 0;
-float OBG_CurKI = 0;
+// float KP_Cur = 0;
+// float KI_Cur = 0;
+// float OBS_CurKI = 0;
+// float OBG_CurKI = 0;
 
-float OBS_CurOutput = 0;
-float OBS_CurOutputPrev = 0;
-float OBG_CurOutput = 0;
+// float OBS_CurOutput = 0;
+// float OBS_CurOutputPrev = 0;
+// float OBG_CurOutput = 0;
 float OBC_CurMeaFilted = 0;
 float DCAC_CurReq = 0;
 float DCDC_CurReq = 0;
 
-float OBS_VolInput = 0;
-float OBG_VolInput = 0;
+// float OBS_VolInput = 0;
+// float OBG_VolInput = 0;
 float VCU_VolOutput = 0;
 
 float NTC_TempMea0Filted = 0;
@@ -184,10 +184,10 @@ ubyte EF_NorminalInfoLostBMS = 0;
 ubyte EF_NodeLostBMS = 0;
 //}053
 
-float VCU_VolRefAllowedOBS = 0;
-float VCU_CurRefAllowedOBS = 0;
-float VCU_VolRefAllowedOBG = 0;
-float VCU_CurRefAllowedOBG = 0;
+// float VCU_VolRefAllowedOBS = 0;
+// float VCU_CurRefAllowedOBS = 0;
+// float VCU_VolRefAllowedOBG = 0;
+// float VCU_CurRefAllowedOBG = 0;
 
 float VCU_VolRefAllowedOBC = 0;
 float VCU_CurRefAllowedOBC = 0;
@@ -195,8 +195,8 @@ ubyte VCU_LifeTimeOBC = 0;
 
 ubyte VCU_ChgCmd = DISABLE_CHG;	   //{Need to confirm with supplier about default value
 ubyte VCU_ChgCmdOBC = DISABLE_CHG; //{Need to confirm with supplier about default value
-ubyte VCU_ChgCmdOBG = DISABLE_CHG; //{Need to confirm with supplier about default value
-ubyte VCU_ChgCmdOBS = DISABLE_CHG; //{Need to confirm with supplier about default value
+// ubyte VCU_ChgCmdOBG = DISABLE_CHG; //{Need to confirm with supplier about default value
+// ubyte VCU_ChgCmdOBS = DISABLE_CHG; //{Need to confirm with supplier about default value
 
 ubyte VCU_Status01DropCntOBC = 0;
 ubyte VCU_Status02DropCntOBC = 0;
@@ -210,11 +210,11 @@ float OBC_VolPFC = 0;
 float OBC_VolBat = 0;
 
 float OBC_CurLimit = 0;
-float OBG_CurLimit = 0;
-float OBS_CurLimit = 0;
+// float OBG_CurLimit = 0;
+// float OBS_CurLimit = 0;
 
-ubyte OBG_FaultPwm = 0;
-ubyte OBS_FaultPwm = 0;
+// ubyte OBG_FaultPwm = 0;
+// ubyte OBS_FaultPwm = 0;
 
 ubyte OBC_FaultCode = 0;
 float OBC_CurACInput = 0;
@@ -268,10 +268,10 @@ ubyte EF_NodeLostDCDC = 0;
 ubyte EF_NodeLostISG = 0;
 
 float OBC_SysStatus = 0;
-ubyte OBG_SysStatus = 0;
-ubyte OBS_SysStatus = 0;
-ubyte DCAC_TempCapOBG = 0;
-ubyte DCAC_TempCapOBS = 0;
+// ubyte OBG_SysStatus = 0;
+// ubyte OBS_SysStatus = 0;
+// ubyte DCAC_TempCapOBG = 0;
+// ubyte DCAC_TempCapOBS = 0;
 ubyte DCAC_SysStatus = 0;
 ubyte DCAC_HandSwitch = 0; //{为1时执行下电流程
 ubyte DCDC_SysStatus = 0;
@@ -372,25 +372,25 @@ float adcon(float adVal)
 
 void vars_clear_01(void)
 {
-	OBG_VolKI = 0;
-	OBS_VolKI = 0;
-	OBG_CurKI = 0;
-	OBS_CurKI = 0;
-	OBG_PwmRef = 0;
-	OBS_PwmRef = 0;
+	// OBG_VolKI = 0;
+	// OBS_VolKI = 0;
+	// OBG_CurKI = 0;
+	// OBS_CurKI = 0;
+	// OBG_PwmRef = 0;
+	// OBS_PwmRef = 0;
 
 	VCU_CurRefAllowedOBC = 0;
-	VCU_CurRefAllowedOBG = 0;
-	VCU_CurRefAllowedOBS = 0;
+	// VCU_CurRefAllowedOBG = 0;
+	// VCU_CurRefAllowedOBS = 0;
 	VCU_VolRefAllowedOBC = 0;
-	VCU_VolRefAllowedOBG = 0;
-	VCU_VolRefAllowedOBS = 0;
+	// VCU_VolRefAllowedOBG = 0;
+	// VCU_VolRefAllowedOBS = 0;
 
 	VCU_EnableDCAC = DISABLE_DCAC;
 	VCU_EnableDCDC = DISABLE_DCDC;
 	VCU_ChgCmdOBC = FINISH_CHG;
-	VCU_ChgCmdOBG = DISABLE_CHG;
-	VCU_ChgCmdOBS = DISABLE_CHG;
+	// VCU_ChgCmdOBG = DISABLE_CHG;
+	// VCU_ChgCmdOBS = DISABLE_CHG;
 	VCU_ChgStatusBMS = 0;
 
 	VCU_HVPowerEnableBMS = 2;
@@ -398,21 +398,21 @@ void vars_clear_01(void)
 
 void vars_clear_02(void) // 关闭升压功能
 {
-	OBG_VolKI = 0;
-	OBS_VolKI = 0;
-	OBG_CurKI = 0;
-	OBS_CurKI = 0;
-	OBG_PwmRef = 0;
-	OBS_PwmRef = 0;
+	// OBG_VolKI = 0;
+	// OBS_VolKI = 0;
+	// OBG_CurKI = 0;
+	// OBS_CurKI = 0;
+	// OBG_PwmRef = 0;
+	// OBS_PwmRef = 0;
 
-	VCU_CurRefAllowedOBG = 0;
-	VCU_CurRefAllowedOBS = 0;
+	// VCU_CurRefAllowedOBG = 0;
+	// VCU_CurRefAllowedOBS = 0;
 	VCU_VolRefAllowedOBC = 0;
-	VCU_VolRefAllowedOBG = 0;
-	VCU_VolRefAllowedOBS = 0;
+	// VCU_VolRefAllowedOBG = 0;
+	// VCU_VolRefAllowedOBS = 0;
 
-	VCU_ChgCmdOBG = DISABLE_CHG;
-	VCU_ChgCmdOBS = DISABLE_CHG;
+	// VCU_ChgCmdOBG = DISABLE_CHG;
+	// VCU_ChgCmdOBS = DISABLE_CHG;
 }
 
 void bms_rx(void)
@@ -766,8 +766,8 @@ void dcac_rx(void) //{在debug_rx()前执行
 			if (VCU_HandSwitchGUI == 0) // 如果接收到屏幕强制下高压的指令，不再接收DCAC传过来的开关状态信息
 				DCAC_HandSwitch = (RXObj.ubData[0] >> 4) & 0x01;
 			DCAC_TempModule = RXObj.ubData[1] - 50;
-			DCAC_TempCapOBG = RXObj.ubData[2] - 50;
-			DCAC_TempCapOBS = RXObj.ubData[3] - 50;
+			// DCAC_TempCapOBG = RXObj.ubData[2] - 50;
+			// DCAC_TempCapOBS = RXObj.ubData[3] - 50;
 			VCU_StatusDropCntDCAC = 0;
 			EF_StatusLostDCAC = 0;
 		}
@@ -958,25 +958,25 @@ void volcur_sample(void)
 	tmp = tmp * 0.12400; //{500/4096
 	VCU_VolOutput = VCU_VolOutput * 0.9 + tmp * 0.1;
 
-	ADC0_vStartSeq0ReqChNum(0, 0, 0, 9);
-	tmp = (float)ADC0_uwGetResultData(RESULT_REG_9);
-	tmp = (2048 - tmp) * 0.0397; //{
-	OBS_CurOutput = OBS_CurOutput * 0.9 + tmp * 0.1;
+	// ADC0_vStartSeq0ReqChNum(0, 0, 0, 9);
+	// tmp = (float)ADC0_uwGetResultData(RESULT_REG_9);
+	// tmp = (2048 - tmp) * 0.0397; //{
+	// OBS_CurOutput = OBS_CurOutput * 0.9 + tmp * 0.1;
 
-	ADC1_vStartSeq2ReqChNum(0, 0, 0, 9);
-	tmp = (float)ADC1_uwGetResultData(RESULT_REG_9);
-	tmp = (tmp - 2048) * 0.0397; //{
-	OBG_CurOutput = OBG_CurOutput * 0.9 + tmp * 0.1;
+	// ADC1_vStartSeq2ReqChNum(0, 0, 0, 9);
+	// tmp = (float)ADC1_uwGetResultData(RESULT_REG_9);
+	// tmp = (tmp - 2048) * 0.0397; //{
+	// OBG_CurOutput = OBG_CurOutput * 0.9 + tmp * 0.1;
 
-	ADC0_vStartSeq2ReqChNum(0, 0, 0, 5);
-	tmp = (float)ADC0_uwGetResultData(RESULT_REG_5);
-	tmp = tmp * 0.01221; //{50/4096  P11
-	OBG_VolInput = OBG_VolInput * 0.9 + tmp * 0.1;
+	// ADC0_vStartSeq2ReqChNum(0, 0, 0, 5);
+	// tmp = (float)ADC0_uwGetResultData(RESULT_REG_5);
+	// tmp = tmp * 0.01221; //{50/4096  P11
+	// OBG_VolInput = OBG_VolInput * 0.9 + tmp * 0.1;
 
-	ADC1_vStartSeq4ReqChNum(0, 0, 0, 5);
-	tmp = (float)ADC1_uwGetResultData(RESULT_REG_5);
-	tmp = tmp * 0.01230; //{50/4096  P6
-	OBS_VolInput = OBS_VolInput * 0.9 + tmp * 0.1;
+	// ADC1_vStartSeq4ReqChNum(0, 0, 0, 5);
+	// tmp = (float)ADC1_uwGetResultData(RESULT_REG_5);
+	// tmp = tmp * 0.01230; //{50/4096  P6
+	// OBS_VolInput = OBS_VolInput * 0.9 + tmp * 0.1;
 
 	ADC1_vStartSeq0ReqChNum(0, 0, 0, 13);
 	tmp = (float)ADC1_uwGetResultData(RESULT_REG_13);
@@ -991,31 +991,31 @@ void error_check(void)
 	float tmpCurDCDC;
 	float tmpPow45 = 0;
 
-	//{OBS输入电压过高故障 62
-	static ubyte obsmaxivCnt = 0;
-	if (OBS_VolInput > OBSMAXVOL)
-	{
-		if (++obsmaxivCnt > ERROR_CNT)
-		{
-			// ErrorCode |= (uword)0x01 << 0;  //0X00000001
-			// TaskState = ERROR;
-		}
-	}
-	else
-		obsmaxivCnt = 0;
+	// //{OBS输入电压过高故障 62
+	// static ubyte obsmaxivCnt = 0;
+	// if (OBS_VolInput > OBSMAXVOL)
+	// {
+	// 	if (++obsmaxivCnt > ERROR_CNT)
+	// 	{
+	// 		// ErrorCode |= (uword)0x01 << 0;  //0X00000001
+	// 		// TaskState = ERROR;
+	// 	}
+	// }
+	// else
+	// 	obsmaxivCnt = 0;
 
-	//{OBG输入电压过高故障 63
-	static ubyte obgmaxivCnt = 0;
-	if (OBG_VolInput > OBGMAXVOL)
-	{
-		if (++obgmaxivCnt > ERROR_CNT)
-		{
-			// ErrorCode |= (uword)0x01 << 1; //0X00000002
-			// TaskState = ERROR;
-		}
-	}
-	else
-		obgmaxivCnt = 0;
+	// //{OBG输入电压过高故障 63
+	// static ubyte obgmaxivCnt = 0;
+	// if (OBG_VolInput > OBGMAXVOL)
+	// {
+	// 	if (++obgmaxivCnt > ERROR_CNT)
+	// 	{
+	// 		// ErrorCode |= (uword)0x01 << 1; //0X00000002
+	// 		// TaskState = ERROR;
+	// 	}
+	// }
+	// else
+	// 	obgmaxivCnt = 0;
 
 	//{升压输出电压过高故障 64
 	static ubyte vcumaxovCnt = 0;
@@ -1032,59 +1032,59 @@ void error_check(void)
 	else
 		vcumaxovCnt = 0;
 
-	//{OBS输出电流过大故障 65
-	static ubyte obsmaxocCnt = 0;
-	if (OBS_CurOutput > OBSMAXCUR)
-	{
-		if (++obsmaxocCnt > 50)
-		{
-			ErrorCode |= (uword)0x01 << 3; // 0X00000008
-			TaskState = ERROR;
-			VCU_CurRefAllowedOBS = 0;
-		}
-	}
-	else
-		obsmaxocCnt = 0;
+	// //{OBS输出电流过大故障 65
+	// static ubyte obsmaxocCnt = 0;
+	// if (OBS_CurOutput > OBSMAXCUR)
+	// {
+	// 	if (++obsmaxocCnt > 50)
+	// 	{
+	// 		ErrorCode |= (uword)0x01 << 3; // 0X00000008
+	// 		TaskState = ERROR;
+	// 		VCU_CurRefAllowedOBS = 0;
+	// 	}
+	// }
+	// else
+	// 	obsmaxocCnt = 0;
 
-	//{OBG输出电流过大故障 66
-	static ubyte obgmaxocCnt = 0;
-	if (OBG_CurOutput > OBGMAXCUR)
-	{
-		if (++obgmaxocCnt > 50)
-		{
-			ErrorCode |= (uword)0x01 << 4; // 0X00000010
-			TaskState = ERROR;
-			VCU_CurRefAllowedOBG = 0;
-		}
-	}
-	else
-		obgmaxocCnt = 0;
+	// //{OBG输出电流过大故障 66
+	// static ubyte obgmaxocCnt = 0;
+	// if (OBG_CurOutput > OBGMAXCUR)
+	// {
+	// 	if (++obgmaxocCnt > 50)
+	// 	{
+	// 		ErrorCode |= (uword)0x01 << 4; // 0X00000010
+	// 		TaskState = ERROR;
+	// 		VCU_CurRefAllowedOBG = 0;
+	// 	}
+	// }
+	// else
+	// 	obgmaxocCnt = 0;
 
 	//{OBS输出反向电流异常故障 67
-	static ubyte obsnegcCnt = 0;
-	if (OBS_CurOutput < -2.0)
-	{
-		if (++obsnegcCnt > ERROR_CNT)
-		{
-			// ErrorCode |= (uword)0x01 << 5;//0X00000020
-			// TaskState = ERROR;
-		}
-	}
-	else
-		obsnegcCnt = 0;
+	// static ubyte obsnegcCnt = 0;
+	// if (OBS_CurOutput < -2.0)
+	// {
+	// 	if (++obsnegcCnt > ERROR_CNT)
+	// 	{
+	// 		// ErrorCode |= (uword)0x01 << 5;//0X00000020
+	// 		// TaskState = ERROR;
+	// 	}
+	// }
+	// else
+	// 	obsnegcCnt = 0;
 
 	//{OBG输出反向电流异常故障 68
-	static ubyte obgnegcCnt = 0;
-	if (OBG_CurOutput < -2.0)
-	{
-		if (++obgnegcCnt > 50)
-		{
-			// ErrorCode |= (uword)0x01 << 6;//0X00000040
-			// TaskState = ERROR;
-		}
-	}
-	else
-		obgnegcCnt = 0;
+	// static ubyte obgnegcCnt = 0;
+	// if (OBG_CurOutput < -2.0)
+	// {
+	// 	if (++obgnegcCnt > 50)
+	// 	{
+	// 		// ErrorCode |= (uword)0x01 << 6;//0X00000040
+	// 		// TaskState = ERROR;
+	// 	}
+	// }
+	// else
+	// 	obgnegcCnt = 0;
 
 	//{NTC温度过高故障 69
 	static ubyte ntcTMA = 0;
@@ -1139,16 +1139,16 @@ void error_check(void)
 		if (DCDC_CurOutput < 6.0)
 		{
 			tmpPow45 = 0;
-			if (VCU_ChgStatusBMS == 3)
-			{
-				if ((OBG_VolInput > 12.6) || (OBS_VolInput > 12.6))
-				{
-					if ((VCU_PWMEnable == 0) && (DCAC_SysStatus == 2))
-					{
-						tmpPow45 = 45;
-					}
-				}
-			}
+			// if (VCU_ChgStatusBMS == 3)
+			// {
+			// 	if ((OBG_VolInput > 12.6) || (OBS_VolInput > 12.6))
+			// 	{
+			// 		if ((VCU_PWMEnable == 0) && (DCAC_SysStatus == 2))
+			// 		{
+			// 			tmpPow45 = 45;
+			// 		}
+			// 	}
+			// }
 			//{20201211_002:只要DCAC出PWM波,就把小功率补偿中加一个45W
 			if ((VCU_PWMEnable == 0) && (DCAC_SysStatus == 2))
 			{
@@ -1236,314 +1236,316 @@ void error_check(void)
 
 void obg_boost(void)
 {
-	static uword prevPwmRefOBG = 0;
-	static uword pwmEnCnt = 0;
-	static uword pwmDisCnt = 0;
-	float volDet, curDet;
-	float volKP, curKP;
-	float pwmMax, pwmMin;
-	float CurRef;
-	uword tmp;
 
-	pwmMin = 0;
-	pwmMax = 250; // pwmMax = 300;   //  LYMG---22.6.16
+	// static uword prevPwmRefOBG = 0;
+	// static uword pwmEnCnt = 0;
+	// static uword pwmDisCnt = 0;
+	// float volDet, curDet;
+	// float volKP, curKP;
+	// float pwmMax, pwmMin;
+	// float CurRef;
+	// uword tmp;
 
-	if ((VCU_ChgCmdOBG == ENABLE_CHG) && (ISG_run_state <= 1))
-	{ //{恒流模式
-		//{OBG出电流故障保护  //PWM失效保护
-		if ((OBG_PwmRef > (pwmMax - 5)) && (OBG_CurOutput < _MAX((OBG_CurLimit - 0.5), 0)))
-		{ // 0.2
-			OBG_FaultPwm = 1;
-		}
-		if (OBG_FaultPwm == 1)
-		{ //{PWM输出但是没有期望电流出来,关掉这一路不再工作,重启消除
-			OBG_CurKI = 0;
-			OBG_CurRef = 0;
-			OBG_PwmRef = 0;
-			prevPwmRefOBG = 0;
-			VCU_CurRefAllowedOBG = 0;
-		}
-		//************************电流指令加梯度************************************//
-		if (OBG_CurRef < VCU_CurRefAllowedOBG)
-			OBG_CurRef = OBG_CurRef + 0.01; // _MIN( (OBG_CurRef + 0.01), VCU_CurRefAllowedOBG );//23.4.20//
-		if (OBG_CurRef > VCU_CurRefAllowedOBG)
-			OBG_CurRef = OBG_CurRef - 0.1; // _MAX( (OBG_CurRef - 0.02), VCU_CurRefAllowedOBG );//23.4.20 //
-		if (VCU_CurRefAllowedOBG <= 0)
-		{
-			VCU_CurRefAllowedOBG = 0;
-		}
-		if (OBG_CurRef <= 0)
-		{
-			OBG_CurRef = 0;
-		}
-		//************************电流指令加梯度************************************//
+	// pwmMin = 0;
+	// pwmMax = 250; // pwmMax = 300;   //  LYMG---22.6.16
 
-		//************************OBG侧电流环处理************************************//
-		curDet = OBG_CurRef - _MAX(OBG_CurOutput, 0.1);
-		if (((curDet > 0) && (prevPwmRefOBG <= pwmMax)) || ((curDet < 0) && (prevPwmRefOBG > 0)))
-		{
-			curKP = curDet * 1;		   // KP_Cur;  //1;  //KP_Cur;  //0.1;
-			OBG_CurKI += curDet * 0.1; // KI_Cur;  //0.001;  //KI_Cur;  //0.01;
-			OBG_CurKI = _MID(OBG_CurKI, pwmMin, pwmMax);
-			OBG_PwmRef = _MID(_ROUNDU(curKP + OBG_CurKI), pwmMin, pwmMax);
-			prevPwmRefOBG = OBG_PwmRef;
-		}
-		//************************OBG侧电流环处理************************************//
-		if ((VCU_CurRefAllowedOBG == 0) && (OBG_CurRef == 0)) // 无电流指令  快速关闭 PWM
-		{
-			OBG_CurKI = 0;
-			OBG_PwmRef = OBG_PwmRef - 0.75;
-			prevPwmRefOBG = 0;
-			if (OBG_PwmRef < 1)
-			{
-				OBG_PwmRef = 0;
-			}
-		}
+	// if ((VCU_ChgCmdOBG == ENABLE_CHG) && (ISG_run_state <= 1))
+	// { //{恒流模式
+	// 	//{OBG出电流故障保护  //PWM失效保护
+	// 	if ((OBG_PwmRef > (pwmMax - 5)) && (OBG_CurOutput < _MAX((OBG_CurLimit - 0.5), 0)))
+	// 	{ // 0.2
+	// 		OBG_FaultPwm = 1;
+	// 	}
+	// 	if (OBG_FaultPwm == 1)
+	// 	{ //{PWM输出但是没有期望电流出来,关掉这一路不再工作,重启消除
+	// 		OBG_CurKI = 0;
+	// 		OBG_CurRef = 0;
+	// 		OBG_PwmRef = 0;
+	// 		prevPwmRefOBG = 0;
+	// 		VCU_CurRefAllowedOBG = 0;
+	// 	}
+	// 	//************************电流指令加梯度************************************//
+	// 	if (OBG_CurRef < VCU_CurRefAllowedOBG)
+	// 		OBG_CurRef = OBG_CurRef + 0.01; // _MIN( (OBG_CurRef + 0.01), VCU_CurRefAllowedOBG );//23.4.20//
+	// 	if (OBG_CurRef > VCU_CurRefAllowedOBG)
+	// 		OBG_CurRef = OBG_CurRef - 0.1; // _MAX( (OBG_CurRef - 0.02), VCU_CurRefAllowedOBG );//23.4.20 //
+	// 	if (VCU_CurRefAllowedOBG <= 0)
+	// 	{
+	// 		VCU_CurRefAllowedOBG = 0;
+	// 	}
+	// 	if (OBG_CurRef <= 0)
+	// 	{
+	// 		OBG_CurRef = 0;
+	// 	}
+	// 	//************************电流指令加梯度************************************//
 
-		if ((DCAC_HandSwitch == 1) || (VCU_ChgStatusBMS != 1))
-		{
-			OBG_CurKI = 0;
-			OBG_CurRef = 0;
-			OBG_PwmRef = 0;
-			prevPwmRefOBG = 0;
-		}
-	}
-	else
-	{ //{关闭输出
-		OBG_CurKI = 0;
-		OBG_CurRef = 0;
-		OBG_PwmRef = 0;
-		prevPwmRefOBG = 0;
-	}
+	// 	//************************OBG侧电流环处理************************************//
+	// 	curDet = OBG_CurRef - _MAX(OBG_CurOutput, 0.1);
+	// 	if (((curDet > 0) && (prevPwmRefOBG <= pwmMax)) || ((curDet < 0) && (prevPwmRefOBG > 0)))
+	// 	{
+	// 		curKP = curDet * 1;		   // KP_Cur;  //1;  //KP_Cur;  //0.1;
+	// 		OBG_CurKI += curDet * 0.1; // KI_Cur;  //0.001;  //KI_Cur;  //0.01;
+	// 		OBG_CurKI = _MID(OBG_CurKI, pwmMin, pwmMax);
+	// 		OBG_PwmRef = _MID(_ROUNDU(curKP + OBG_CurKI), pwmMin, pwmMax);
+	// 		prevPwmRefOBG = OBG_PwmRef;
+	// 	}
+	// 	//************************OBG侧电流环处理************************************//
+	// 	if ((VCU_CurRefAllowedOBG == 0) && (OBG_CurRef == 0)) // 无电流指令  快速关闭 PWM
+	// 	{
+	// 		OBG_CurKI = 0;
+	// 		OBG_PwmRef = OBG_PwmRef - 0.75;
+	// 		prevPwmRefOBG = 0;
+	// 		if (OBG_PwmRef < 1)
+	// 		{
+	// 			OBG_PwmRef = 0;
+	// 		}
+	// 	}
 
-	//************************PWM指令增加再次增加梯度************************************//
-	if (OBG_PwmStep < OBG_PwmRef)
-		OBG_PwmStep = _MIN((OBG_PwmStep + 20), OBG_PwmRef); // 20
-	if (OBG_PwmStep > OBG_PwmRef)
-		OBG_PwmStep = _MAX((OBG_PwmStep - 20), OBG_PwmRef); // 20
+	// 	if ((DCAC_HandSwitch == 1) || (VCU_ChgStatusBMS != 1))
+	// 	{
+	// 		OBG_CurKI = 0;
+	// 		OBG_CurRef = 0;
+	// 		OBG_PwmRef = 0;
+	// 		prevPwmRefOBG = 0;
+	// 	}
+	// }
+	// else
+	// { //{关闭输出
+	// 	OBG_CurKI = 0;
+	// 	OBG_CurRef = 0;
+	// 	OBG_PwmRef = 0;
+	// 	prevPwmRefOBG = 0;
+	// }
 
-	// OBG_PwmStep = lim(OBG_PwmStep,0,250); //PWM做限幅处理
-	//************************PWM指令增加再次增加梯度************************************//
+	// //************************PWM指令增加再次增加梯度************************************//
+	// if (OBG_PwmStep < OBG_PwmRef)
+	// 	OBG_PwmStep = _MIN((OBG_PwmStep + 20), OBG_PwmRef); // 20
+	// if (OBG_PwmStep > OBG_PwmRef)
+	// 	OBG_PwmStep = _MAX((OBG_PwmStep - 20), OBG_PwmRef); // 20
 
-	tmp = GPTA0_LTCCTR10;
-	if ((GPTA0_LTCCTR10_RED == 1) && (GPTA0_LTCCTR10_FED == 1) && (GPTA0_LTCCTR10_CEN == 1) && (GPTA0_LTCCTR10_OSM == 0))
-	{
-		GPTA0_LTCXR11 = _PWMZ(OBG_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
-		GPTA0_LTCCTR11_OSM = 0;
-		GPTA0_LTCCTR11_RED = 1;
-		GPTA0_LTCCTR11_FED = 1;
-		GPTA0_LTCCTR10_OSM = 1;
-		tmp = GPTA0_LTCXR10;
-		tmp = GPTA0_LTCXR00;
-		if (GPTA0_LTCXR00 > GPTA0_LTCXR10)
-		{
-			GPTA0_LTCCTR10_RED = 0;
-			GPTA0_LTCCTR10_FED = 0;
-		}
-	}
-	else
-	{
-		GPTA0_LTCXR10 = _PWMZ(OBG_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
-		GPTA0_LTCCTR10_OSM = 0;
-		GPTA0_LTCCTR10_RED = 1;
-		GPTA0_LTCCTR10_FED = 1;
-		GPTA0_LTCCTR11_OSM = 1;
-		tmp = GPTA0_LTCXR11;
-		tmp = GPTA0_LTCXR00;
-		if (GPTA0_LTCXR00 > GPTA0_LTCXR11)
-		{
-			GPTA0_LTCCTR11_RED = 0;
-			GPTA0_LTCCTR11_FED = 0;
-		}
-	}
-	tmp = GPTA0_LTCCTR14;
-	if ((GPTA0_LTCCTR14_RED == 1) && (GPTA0_LTCCTR14_FED == 1) && (GPTA0_LTCCTR14_CEN == 1) && (GPTA0_LTCCTR14_OSM == 0))
-	{
-		GPTA0_LTCXR15 = _PWMZ(OBG_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
-		GPTA0_LTCCTR15_OSM = 0;
-		GPTA0_LTCCTR15_RED = 1;
-		GPTA0_LTCCTR15_FED = 1;
-		GPTA0_LTCCTR14_OSM = 1;
-		tmp = GPTA0_LTCXR14;
-		tmp = GPTA0_LTCXR00;
-		if (GPTA0_LTCXR00 > GPTA0_LTCXR14)
-		{
-			GPTA0_LTCCTR14_RED = 0;
-			GPTA0_LTCCTR14_FED = 0;
-		}
-	}
-	else
-	{
-		GPTA0_LTCXR14 = _PWMZ(OBG_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
-		GPTA0_LTCCTR14_OSM = 0;
-		GPTA0_LTCCTR14_RED = 1;
-		GPTA0_LTCCTR14_FED = 1;
-		GPTA0_LTCCTR15_OSM = 1;
-		tmp = GPTA0_LTCXR15;
-		tmp = GPTA0_LTCXR00;
-		if (GPTA0_LTCXR00 > GPTA0_LTCXR15)
-		{
-			GPTA0_LTCCTR15_RED = 0;
-			GPTA0_LTCCTR15_FED = 0;
-		}
-	}
+	// // OBG_PwmStep = lim(OBG_PwmStep,0,250); //PWM做限幅处理
+	// //************************PWM指令增加再次增加梯度************************************//
+
+	// tmp = GPTA0_LTCCTR10;
+	// if ((GPTA0_LTCCTR10_RED == 1) && (GPTA0_LTCCTR10_FED == 1) && (GPTA0_LTCCTR10_CEN == 1) && (GPTA0_LTCCTR10_OSM == 0))
+	// {
+	// 	GPTA0_LTCXR11 = _PWMZ(OBG_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
+	// 	GPTA0_LTCCTR11_OSM = 0;
+	// 	GPTA0_LTCCTR11_RED = 1;
+	// 	GPTA0_LTCCTR11_FED = 1;
+	// 	GPTA0_LTCCTR10_OSM = 1;
+	// 	tmp = GPTA0_LTCXR10;
+	// 	tmp = GPTA0_LTCXR00;
+	// 	if (GPTA0_LTCXR00 > GPTA0_LTCXR10)
+	// 	{
+	// 		GPTA0_LTCCTR10_RED = 0;
+	// 		GPTA0_LTCCTR10_FED = 0;
+	// 	}
+	// }
+	// else
+	// {
+	// 	GPTA0_LTCXR10 = _PWMZ(OBG_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
+	// 	GPTA0_LTCCTR10_OSM = 0;
+	// 	GPTA0_LTCCTR10_RED = 1;
+	// 	GPTA0_LTCCTR10_FED = 1;
+	// 	GPTA0_LTCCTR11_OSM = 1;
+	// 	tmp = GPTA0_LTCXR11;
+	// 	tmp = GPTA0_LTCXR00;
+	// 	if (GPTA0_LTCXR00 > GPTA0_LTCXR11)
+	// 	{
+	// 		GPTA0_LTCCTR11_RED = 0;
+	// 		GPTA0_LTCCTR11_FED = 0;
+	// 	}
+	// }
+	// tmp = GPTA0_LTCCTR14;
+	// if ((GPTA0_LTCCTR14_RED == 1) && (GPTA0_LTCCTR14_FED == 1) && (GPTA0_LTCCTR14_CEN == 1) && (GPTA0_LTCCTR14_OSM == 0))
+	// {
+	// 	GPTA0_LTCXR15 = _PWMZ(OBG_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
+	// 	GPTA0_LTCCTR15_OSM = 0;
+	// 	GPTA0_LTCCTR15_RED = 1;
+	// 	GPTA0_LTCCTR15_FED = 1;
+	// 	GPTA0_LTCCTR14_OSM = 1;
+	// 	tmp = GPTA0_LTCXR14;
+	// 	tmp = GPTA0_LTCXR00;
+	// 	if (GPTA0_LTCXR00 > GPTA0_LTCXR14)
+	// 	{
+	// 		GPTA0_LTCCTR14_RED = 0;
+	// 		GPTA0_LTCCTR14_FED = 0;
+	// 	}
+	// }
+	// else
+	// {
+	// 	GPTA0_LTCXR14 = _PWMZ(OBG_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
+	// 	GPTA0_LTCCTR14_OSM = 0;
+	// 	GPTA0_LTCCTR14_RED = 1;
+	// 	GPTA0_LTCCTR14_FED = 1;
+	// 	GPTA0_LTCCTR15_OSM = 1;
+	// 	tmp = GPTA0_LTCXR15;
+	// 	tmp = GPTA0_LTCXR00;
+	// 	if (GPTA0_LTCXR00 > GPTA0_LTCXR15)
+	// 	{
+	// 		GPTA0_LTCCTR15_RED = 0;
+	// 		GPTA0_LTCCTR15_FED = 0;
+	// 	}
+	// }
 }
 
 void obs_boost(void)
 {
-	static uword prevPwmRefOBS = 0;
-	static uword pwmEnCnt = 0;
-	static uword pwmDisCnt = 0;
-	float volDet, curDet;
-	float volKP, curKP;
-	float pwmMax, pwmMin;
-	float CurRef;
-	uword tmp;
 
-	pwmMin = 0;
-	pwmMax = 250; // pwmMax = 300;   //  LYMG---22.6.10
+	// static uword prevPwmRefOBS = 0;
+	// static uword pwmEnCnt = 0;
+	// static uword pwmDisCnt = 0;
+	// float volDet, curDet;
+	// float volKP, curKP;
+	// float pwmMax, pwmMin;
+	// float CurRef;
+	// uword tmp;
 
-	if ((VCU_ChgCmdOBS == ENABLE_CHG) && (ISG_run_state <= 1))
-	{ //{恒流模式
-		//{OBS出电流故障保护
-		if ((OBS_PwmRef > (pwmMax - 5)) && (OBS_CurOutput < _MAX((OBS_CurLimit - 0.5), 0)))
-		{ // 0.2
-			OBS_FaultPwm = 1;
-		}
-		if (OBS_FaultPwm == 1)
-		{ //{PWM输出但是没有期望电流出来,关掉这一路不再工作,重启消除
-			OBS_CurKI = 0;
-			OBS_CurRef = 0;
-			OBS_PwmRef = 0;
-			prevPwmRefOBS = 0;
-			VCU_CurRefAllowedOBS = 0;
-		}
-		//************************电流指令加梯度************************************//
-		if (OBS_CurRef < VCU_CurRefAllowedOBS)
-			OBS_CurRef = OBS_CurRef + 0.01; //_MIN( (OBS_CurRef + 0.01), VCU_CurRefAllowedOBS );//23.4.20
-		if (OBS_CurRef > VCU_CurRefAllowedOBS)
-			OBS_CurRef = OBS_CurRef - 0.1; //_MAX( (OBS_CurRef - 0.02), VCU_CurRefAllowedOBS );  //23.4.20
-		if (VCU_CurRefAllowedOBS <= 0)
-		{
-			VCU_CurRefAllowedOBS = 0;
-		}
-		if (OBS_CurRef <= 0)
-		{
-			OBS_CurRef = 0;
-		}
-		//************************电流指令加梯度************************************//
+	// pwmMin = 0;
+	// pwmMax = 250; // pwmMax = 300;   //  LYMG---22.6.10
 
-		//************************OBS侧电流环处理************************************//
-		curDet = OBS_CurRef - _MAX(OBS_CurOutput, 0.1);
-		if (((curDet > 0) && (prevPwmRefOBS <= pwmMax)) || ((curDet < 0) && (prevPwmRefOBS > 0)))
-		{
-			curKP = curDet * 1;		   // KP_Cur;  //1;  //KP_Cur;  //0.1;
-			OBS_CurKI += curDet * 0.1; // KI_Cur;  //0.001;  //KI_Cur;  //0.01;
-			OBS_CurKI = _MID(OBS_CurKI, pwmMin, pwmMax);
-			OBS_PwmRef = _MID(_ROUNDU(curKP + OBS_CurKI), pwmMin, pwmMax);
-			// GPTA0_LTCXR11 = GPTA0_LTCXR15 = _PWMZ( OBS_PwmRef );  //{100%占空比赋值0x03E8,0%占空比复制0x03E7
-			prevPwmRefOBS = OBS_PwmRef;
-		}
-		//************************OBS侧电流环处理************************************//
-		if ((VCU_CurRefAllowedOBS == 0) && (OBS_CurRef == 0)) // 无电流指令  快速关闭 PWM
-		{
-			OBS_CurKI = 0;
-			OBS_PwmRef = OBS_PwmRef - 0.75;
-			prevPwmRefOBS = 0;
-			if (OBS_PwmRef < 1)
-			{
-				OBS_PwmRef = 0;
-			}
-		}
-		// if ( ( OBS_CurLimit == 0 ) || ( DCAC_HandSwitch == 1 ) ) {
-		if ((DCAC_HandSwitch == 1) || (VCU_ChgStatusBMS != 1))
-		{
-			OBS_CurKI = 0;
-			OBS_CurRef = 0;
-			OBS_PwmRef = 0;
-			prevPwmRefOBS = 0;
-			// GPTA0_LTCXR11 = GPTA0_LTCXR15 = _PWMZ( OBS_PwmRef );  //{100%占空比赋值0x03E8,0%占空比复制0x03E7
-		}
-	}
-	else
-	{ //{关闭输出
-		OBS_CurKI = 0;
-		OBS_CurRef = 0;
-		OBS_PwmRef = 0;
-		prevPwmRefOBS = 0;
-	}
-	//************************PWM指令增加再次增加梯度************************************//
-	if (OBS_PwmStep < OBS_PwmRef)
-		OBS_PwmStep = _MIN((OBS_PwmStep + 20), OBS_PwmRef); // 20
-	if (OBS_PwmStep > OBS_PwmRef)
-		OBS_PwmStep = _MAX((OBS_PwmStep - 20), OBS_PwmRef); // 20
+	// if ((VCU_ChgCmdOBS == ENABLE_CHG) && (ISG_run_state <= 1))
+	// { //{恒流模式
+	// 	//{OBS出电流故障保护
+	// 	if ((OBS_PwmRef > (pwmMax - 5)) && (OBS_CurOutput < _MAX((OBS_CurLimit - 0.5), 0)))
+	// 	{ // 0.2
+	// 		OBS_FaultPwm = 1;
+	// 	}
+	// 	if (OBS_FaultPwm == 1)
+	// 	{ //{PWM输出但是没有期望电流出来,关掉这一路不再工作,重启消除
+	// 		OBS_CurKI = 0;
+	// 		OBS_CurRef = 0;
+	// 		OBS_PwmRef = 0;
+	// 		prevPwmRefOBS = 0;
+	// 		VCU_CurRefAllowedOBS = 0;
+	// 	}
+	// 	//************************电流指令加梯度************************************//
+	// 	if (OBS_CurRef < VCU_CurRefAllowedOBS)
+	// 		OBS_CurRef = OBS_CurRef + 0.01; //_MIN( (OBS_CurRef + 0.01), VCU_CurRefAllowedOBS );//23.4.20
+	// 	if (OBS_CurRef > VCU_CurRefAllowedOBS)
+	// 		OBS_CurRef = OBS_CurRef - 0.1; //_MAX( (OBS_CurRef - 0.02), VCU_CurRefAllowedOBS );  //23.4.20
+	// 	if (VCU_CurRefAllowedOBS <= 0)
+	// 	{
+	// 		VCU_CurRefAllowedOBS = 0;
+	// 	}
+	// 	if (OBS_CurRef <= 0)
+	// 	{
+	// 		OBS_CurRef = 0;
+	// 	}
+	// 	//************************电流指令加梯度************************************//
 
-	// OBS_PwmStep = lim(OBS_PwmStep,0,250); //PWM做限幅处理
-	//************************PWM指令增加再次增加梯度************************************//
+	// 	//************************OBS侧电流环处理************************************//
+	// 	curDet = OBS_CurRef - _MAX(OBS_CurOutput, 0.1);
+	// 	if (((curDet > 0) && (prevPwmRefOBS <= pwmMax)) || ((curDet < 0) && (prevPwmRefOBS > 0)))
+	// 	{
+	// 		curKP = curDet * 1;		   // KP_Cur;  //1;  //KP_Cur;  //0.1;
+	// 		OBS_CurKI += curDet * 0.1; // KI_Cur;  //0.001;  //KI_Cur;  //0.01;
+	// 		OBS_CurKI = _MID(OBS_CurKI, pwmMin, pwmMax);
+	// 		OBS_PwmRef = _MID(_ROUNDU(curKP + OBS_CurKI), pwmMin, pwmMax);
+	// 		// GPTA0_LTCXR11 = GPTA0_LTCXR15 = _PWMZ( OBS_PwmRef );  //{100%占空比赋值0x03E8,0%占空比复制0x03E7
+	// 		prevPwmRefOBS = OBS_PwmRef;
+	// 	}
+	// 	//************************OBS侧电流环处理************************************//
+	// 	if ((VCU_CurRefAllowedOBS == 0) && (OBS_CurRef == 0)) // 无电流指令  快速关闭 PWM
+	// 	{
+	// 		OBS_CurKI = 0;
+	// 		OBS_PwmRef = OBS_PwmRef - 0.75;
+	// 		prevPwmRefOBS = 0;
+	// 		if (OBS_PwmRef < 1)
+	// 		{
+	// 			OBS_PwmRef = 0;
+	// 		}
+	// 	}
+	// 	// if ( ( OBS_CurLimit == 0 ) || ( DCAC_HandSwitch == 1 ) ) {
+	// 	if ((DCAC_HandSwitch == 1) || (VCU_ChgStatusBMS != 1))
+	// 	{
+	// 		OBS_CurKI = 0;
+	// 		OBS_CurRef = 0;
+	// 		OBS_PwmRef = 0;
+	// 		prevPwmRefOBS = 0;
+	// 		// GPTA0_LTCXR11 = GPTA0_LTCXR15 = _PWMZ( OBS_PwmRef );  //{100%占空比赋值0x03E8,0%占空比复制0x03E7
+	// 	}
+	// }
+	// else
+	// { //{关闭输出
+	// 	OBS_CurKI = 0;
+	// 	OBS_CurRef = 0;
+	// 	OBS_PwmRef = 0;
+	// 	prevPwmRefOBS = 0;
+	// }
+	// //************************PWM指令增加再次增加梯度************************************//
+	// if (OBS_PwmStep < OBS_PwmRef)
+	// 	OBS_PwmStep = _MIN((OBS_PwmStep + 20), OBS_PwmRef); // 20
+	// if (OBS_PwmStep > OBS_PwmRef)
+	// 	OBS_PwmStep = _MAX((OBS_PwmStep - 20), OBS_PwmRef); // 20
 
-	// GPTA0_LTCXR03 = GPTA0_LTCXR07 = _PWMZ( OBS_PwmRef );	//{100%占空比赋值0x03E8,0%占空比复制0x03E7
-	tmp = GPTA0_LTCCTR02;
-	if ((GPTA0_LTCCTR02_RED == 1) && (GPTA0_LTCCTR02_FED == 1) && (GPTA0_LTCCTR02_CEN == 1) && (GPTA0_LTCCTR02_OSM == 0))
-	{
-		GPTA0_LTCXR03 = _PWMZ(OBS_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
-		GPTA0_LTCCTR03_OSM = 0;
-		GPTA0_LTCCTR03_RED = 1;
-		GPTA0_LTCCTR03_FED = 1;
-		GPTA0_LTCCTR02_OSM = 1;
-		tmp = GPTA0_LTCXR02;
-		tmp = GPTA0_LTCXR00;
-		if (GPTA0_LTCXR00 > GPTA0_LTCXR02)
-		{
-			GPTA0_LTCCTR02_RED = 0;
-			GPTA0_LTCCTR02_FED = 0;
-		}
-	}
-	else
-	{
-		GPTA0_LTCXR02 = _PWMZ(OBS_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
-		GPTA0_LTCCTR02_OSM = 0;
-		GPTA0_LTCCTR02_RED = 1;
-		GPTA0_LTCCTR02_FED = 1;
-		GPTA0_LTCCTR03_OSM = 1;
-		tmp = GPTA0_LTCXR03;
-		tmp = GPTA0_LTCXR00;
-		if (GPTA0_LTCXR00 > GPTA0_LTCXR03)
-		{
-			GPTA0_LTCCTR03_RED = 0;
-			GPTA0_LTCCTR03_FED = 0;
-		}
-	}
-	tmp = GPTA0_LTCCTR06;
-	if ((GPTA0_LTCCTR06_RED == 1) && (GPTA0_LTCCTR06_FED == 1) && (GPTA0_LTCCTR06_CEN == 1) && (GPTA0_LTCCTR06_OSM == 0))
-	{
-		GPTA0_LTCXR07 = _PWMZ(OBS_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
-		GPTA0_LTCCTR07_OSM = 0;
-		GPTA0_LTCCTR07_RED = 1;
-		GPTA0_LTCCTR07_FED = 1;
-		GPTA0_LTCCTR06_OSM = 1;
-		tmp = GPTA0_LTCXR06;
-		tmp = GPTA0_LTCXR00;
-		if (GPTA0_LTCXR00 > GPTA0_LTCXR06)
-		{
-			GPTA0_LTCCTR06_RED = 0;
-			GPTA0_LTCCTR06_FED = 0;
-		}
-	}
-	else
-	{
-		GPTA0_LTCXR06 = _PWMZ(OBS_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
-		GPTA0_LTCCTR06_OSM = 0;
-		GPTA0_LTCCTR06_RED = 1;
-		GPTA0_LTCCTR06_FED = 1;
-		GPTA0_LTCCTR07_OSM = 1;
-		tmp = GPTA0_LTCXR07;
-		tmp = GPTA0_LTCXR00;
-		if (GPTA0_LTCXR00 > GPTA0_LTCXR07)
-		{
-			GPTA0_LTCCTR07_RED = 0;
-			GPTA0_LTCCTR07_FED = 0;
-		}
-	}
+	// // OBS_PwmStep = lim(OBS_PwmStep,0,250); //PWM做限幅处理
+	// //************************PWM指令增加再次增加梯度************************************//
+
+	// // GPTA0_LTCXR03 = GPTA0_LTCXR07 = _PWMZ( OBS_PwmRef );	//{100%占空比赋值0x03E8,0%占空比复制0x03E7
+	// tmp = GPTA0_LTCCTR02;
+	// if ((GPTA0_LTCCTR02_RED == 1) && (GPTA0_LTCCTR02_FED == 1) && (GPTA0_LTCCTR02_CEN == 1) && (GPTA0_LTCCTR02_OSM == 0))
+	// {
+	// 	GPTA0_LTCXR03 = _PWMZ(OBS_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
+	// 	GPTA0_LTCCTR03_OSM = 0;
+	// 	GPTA0_LTCCTR03_RED = 1;
+	// 	GPTA0_LTCCTR03_FED = 1;
+	// 	GPTA0_LTCCTR02_OSM = 1;
+	// 	tmp = GPTA0_LTCXR02;
+	// 	tmp = GPTA0_LTCXR00;
+	// 	if (GPTA0_LTCXR00 > GPTA0_LTCXR02)
+	// 	{
+	// 		GPTA0_LTCCTR02_RED = 0;
+	// 		GPTA0_LTCCTR02_FED = 0;
+	// 	}
+	// }
+	// else
+	// {
+	// 	GPTA0_LTCXR02 = _PWMZ(OBS_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
+	// 	GPTA0_LTCCTR02_OSM = 0;
+	// 	GPTA0_LTCCTR02_RED = 1;
+	// 	GPTA0_LTCCTR02_FED = 1;
+	// 	GPTA0_LTCCTR03_OSM = 1;
+	// 	tmp = GPTA0_LTCXR03;
+	// 	tmp = GPTA0_LTCXR00;
+	// 	if (GPTA0_LTCXR00 > GPTA0_LTCXR03)
+	// 	{
+	// 		GPTA0_LTCCTR03_RED = 0;
+	// 		GPTA0_LTCCTR03_FED = 0;
+	// 	}
+	// }
+	// tmp = GPTA0_LTCCTR06;
+	// if ((GPTA0_LTCCTR06_RED == 1) && (GPTA0_LTCCTR06_FED == 1) && (GPTA0_LTCCTR06_CEN == 1) && (GPTA0_LTCCTR06_OSM == 0))
+	// {
+	// 	GPTA0_LTCXR07 = _PWMZ(OBS_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
+	// 	GPTA0_LTCCTR07_OSM = 0;
+	// 	GPTA0_LTCCTR07_RED = 1;
+	// 	GPTA0_LTCCTR07_FED = 1;
+	// 	GPTA0_LTCCTR06_OSM = 1;
+	// 	tmp = GPTA0_LTCXR06;
+	// 	tmp = GPTA0_LTCXR00;
+	// 	if (GPTA0_LTCXR00 > GPTA0_LTCXR06)
+	// 	{
+	// 		GPTA0_LTCCTR06_RED = 0;
+	// 		GPTA0_LTCCTR06_FED = 0;
+	// 	}
+	// }
+	// else
+	// {
+	// 	GPTA0_LTCXR06 = _PWMZ(OBS_PwmStep); //{100%占空比赋值0x03E8,0%占空比赋值0x03E7
+	// 	GPTA0_LTCCTR06_OSM = 0;
+	// 	GPTA0_LTCCTR06_RED = 1;
+	// 	GPTA0_LTCCTR06_FED = 1;
+	// 	GPTA0_LTCCTR07_OSM = 1;
+	// 	tmp = GPTA0_LTCXR07;
+	// 	tmp = GPTA0_LTCXR00;
+	// 	if (GPTA0_LTCXR00 > GPTA0_LTCXR07)
+	// 	{
+	// 		GPTA0_LTCCTR07_RED = 0;
+	// 		GPTA0_LTCCTR07_FED = 0;
+	// 	}
+	// }
 }
 
 void mode_switch(void)
@@ -1593,14 +1595,16 @@ void mode_switch(void)
 		VCU_FanEnable = 0;	//{风扇
 		ms30000Cnt++;
 	}
-	if ((DCAC_TempCapOBG > 48) || (DCAC_TempCapOBS > 48))
-	{
-		VCU_PumpEnable = 0;
-		if ((OBG_PwmRef > 0) || (OBS_PwmRef > 0))
-		{
-			VCU_FanEnable = 0;
-		}
-	}
+
+	// if ((DCAC_TempCapOBG > 48) || (DCAC_TempCapOBS > 48))
+	// {
+	// 	VCU_PumpEnable = 0;
+	// 	if ((OBG_PwmRef > 0) || (OBS_PwmRef > 0))
+	// 	{
+	// 		VCU_FanEnable = 0;
+	// 	}
+	// }
+
 	if (DCAC_HandSwitch == 1)
 	{
 		VCU_PumpEnable = 1; //{水泵
@@ -1614,94 +1618,94 @@ void mode_switch(void)
 	if (DCAC_HandSwitch == 0)
 	{ //{手动开关闭合
 
-		volInput = _MAX(OBG_VolInput, OBS_VolInput);
+		// volInput = _MAX(OBG_VolInput, OBS_VolInput);
 
-		curLimit = (_CHECKRANGE(volInput, 26.5, 30)) ? (OBGAIMCUR) : (0); //{更新OBG能输出的电流limit  //用电池升压测试
-		// curLimit=0;
-		tempMax = _MAX(NTC_TempMax, DCAC_TempCapOBG); //{电容和NTC的温度取最大值
-		if (tempMax > 95)
-		{
-			OBG_CurLimit = 0;
-		}
-		else if (tempMax > 90)
-		{
-			OBG_CurLimit = curLimit * 0.4;
-		}
-		else if (tempMax > 85)
-		{
-			OBG_CurLimit = curLimit * 0.6;
-		}
-		else if (tempMax > 80)
-		{
-			OBG_CurLimit = curLimit * 0.8;
-			curLimitOBG = OBG_CurLimit;
-		}
-		else if (tempMax < 75)
-		{
-			OBG_CurLimit = curLimit;
-			curLimitOBG = OBG_CurLimit;
-		}
-		else
-		{
-			if (curLimit > 0)
-			{
-				OBG_CurLimit = curLimitOBG;
-			}
-			else
-			{
-				OBG_CurLimit = 0;
-			}
-		}
+		// curLimit = (_CHECKRANGE(volInput, 26.5, 30)) ? (OBGAIMCUR) : (0); //{更新OBG能输出的电流limit  //用电池升压测试
+		// // curLimit=0;
+		// tempMax = _MAX(NTC_TempMax, DCAC_TempCapOBG); //{电容和NTC的温度取最大值
+		// if (tempMax > 95)
+		// {
+		// 	OBG_CurLimit = 0;
+		// }
+		// else if (tempMax > 90)
+		// {
+		// 	OBG_CurLimit = curLimit * 0.4;
+		// }
+		// else if (tempMax > 85)
+		// {
+		// 	OBG_CurLimit = curLimit * 0.6;
+		// }
+		// else if (tempMax > 80)
+		// {
+		// 	OBG_CurLimit = curLimit * 0.8;
+		// 	curLimitOBG = OBG_CurLimit;
+		// }
+		// else if (tempMax < 75)
+		// {
+		// 	OBG_CurLimit = curLimit;
+		// 	curLimitOBG = OBG_CurLimit;
+		// }
+		// else
+		// {
+		// 	if (curLimit > 0)
+		// 	{
+		// 		OBG_CurLimit = curLimitOBG;
+		// 	}
+		// 	else
+		// 	{
+		// 		OBG_CurLimit = 0;
+		// 	}
+		// }
 
-		curLimit = (_CHECKRANGE(volInput, 26.5, 30)) ? (OBSAIMCUR) : (0); //{更新OBS能输出的电流limit
-		// curLimit=0;
-		tempMax = _MAX(NTC_TempMax, DCAC_TempCapOBS); //{电容和NTC的温度取最大值
-		if (tempMax > 95)
-		{
-			OBS_CurLimit = 0;
-		}
-		else if (tempMax > 90)
-		{
-			OBS_CurLimit = curLimit * 0.4;
-		}
-		else if (tempMax > 85)
-		{
-			OBS_CurLimit = curLimit * 0.6;
-		}
-		else if (tempMax > 80)
-		{
-			OBS_CurLimit = curLimit * 0.8;
-			curLimitOBS = OBS_CurLimit;
-		}
-		else if (tempMax < 75)
-		{
-			OBS_CurLimit = curLimit;
-			curLimitOBS = OBS_CurLimit;
-		}
-		else
-		{
-			if (curLimit > 0)
-			{
-				OBS_CurLimit = curLimitOBS;
-			}
-			else
-			{
-				OBS_CurLimit = 0;
-			}
-		}
+		// curLimit = (_CHECKRANGE(volInput, 26.5, 30)) ? (OBSAIMCUR) : (0); //{更新OBS能输出的电流limit
+		// // curLimit=0;
+		// tempMax = _MAX(NTC_TempMax, DCAC_TempCapOBS); //{电容和NTC的温度取最大值
+		// if (tempMax > 95)
+		// {
+		// 	OBS_CurLimit = 0;
+		// }
+		// else if (tempMax > 90)
+		// {
+		// 	OBS_CurLimit = curLimit * 0.4;
+		// }
+		// else if (tempMax > 85)
+		// {
+		// 	OBS_CurLimit = curLimit * 0.6;
+		// }
+		// else if (tempMax > 80)
+		// {
+		// 	OBS_CurLimit = curLimit * 0.8;
+		// 	curLimitOBS = OBS_CurLimit;
+		// }
+		// else if (tempMax < 75)
+		// {
+		// 	OBS_CurLimit = curLimit;
+		// 	curLimitOBS = OBS_CurLimit;
+		// }
+		// else
+		// {
+		// 	if (curLimit > 0)
+		// 	{
+		// 		OBS_CurLimit = curLimitOBS;
+		// 	}
+		// 	else
+		// 	{
+		// 		OBS_CurLimit = 0;
+		// 	}
+		// }
 
 		if ((BMS_HVPowerLoopStatus == 0) || (EF_NodeLostBMS == 1))
 		{ //{高压回路未闭合或BMS掉线
-			VCU_CurRefAllowedOBG = 0;
-			VCU_VolRefAllowedOBG = 0;
-			VCU_CurRefAllowedOBS = 0;
-			VCU_VolRefAllowedOBS = 0;
+			// VCU_CurRefAllowedOBG = 0;
+			// VCU_VolRefAllowedOBG = 0;
+			// VCU_CurRefAllowedOBS = 0;
+			// VCU_VolRefAllowedOBS = 0;
 			VCU_CurRefAllowedOBC = 0;
 			VCU_VolRefAllowedOBC = 0;
 			VCU_EnableDCAC = DISABLE_DCAC;
 			VCU_EnableDCDC = DISABLE_DCDC;
-			VCU_ChgCmdOBG = DISABLE_CHG;
-			VCU_ChgCmdOBS = DISABLE_CHG;
+			// VCU_ChgCmdOBG = DISABLE_CHG;
+			// VCU_ChgCmdOBS = DISABLE_CHG;
 			VCU_ChgStatusBMS = 0; //{高压回路未闭合
 		}
 
@@ -1723,20 +1727,20 @@ void mode_switch(void)
 				if (BMS_HeatingRequest == 1)
 				{ //{电池有加热的需求
 					BMS_ContChgCurAllowed = 0;
-					VCU_CurRefAllowedOBG = 0;
-					VCU_VolRefAllowedOBG = 0;
-					VCU_CurRefAllowedOBS = 0;
-					VCU_VolRefAllowedOBS = 0;
+					// VCU_CurRefAllowedOBG = 0;
+					// VCU_VolRefAllowedOBG = 0;
+					// VCU_CurRefAllowedOBS = 0;
+					// VCU_VolRefAllowedOBS = 0;
 					VCU_CurRefAllowedOBC = 0;
 					VCU_VolRefAllowedOBC = 0;
 					VCU_EnableDCAC = DISABLE_DCAC; //{可以加热则禁止DCAC输出
-					if ((OBC_CurOutput + OBG_CurOutput + OBS_CurOutput) < 2)
+					if ((OBC_CurOutput) < 2)
 					{ //{OB端电流小于2A时,禁止AC负载端输出
 						VCU_EnableDCDC = DISABLE_DCDC;
 						VCU_EnableDCAC = DISABLE_DCAC;
 						VCU_ChgCmdOBC = DISABLE_CHG;
-						VCU_ChgCmdOBG = ENABLE_CHG;
-						VCU_ChgCmdOBS = ENABLE_CHG;
+						// VCU_ChgCmdOBG = ENABLE_CHG;
+						// VCU_ChgCmdOBS = ENABLE_CHG;
 						if (_ABS(BMS_CurOutput) < 2)
 						{							  //{BMS输出电流小于2A后,下高压
 							VCU_HVPowerEnableBMS = 2; //{主动下高压
@@ -1796,13 +1800,13 @@ void mode_switch(void)
 			{
 				VCU_VolRefAllowedOBC = BMS_VolOutput + 10; //{比高压电池的输出电压大10V
 				VCU_ChgCmdOBC = ENABLE_CHG;
-				VCU_CurRefAllowedOBG = 0;
-				VCU_CurRefAllowedOBS = 0;
+				// VCU_CurRefAllowedOBG = 0;
+				// VCU_CurRefAllowedOBS = 0;
 			}
 			else
 			{
-				VCU_CurRefAllowedOBG = _MIN((VCU_CurRefAllowedOBG + 0.01), _MIN(BMS_ContChgCurAllowed / 2.0, OBG_CurLimit));
-				VCU_CurRefAllowedOBS = _MIN((VCU_CurRefAllowedOBS + 0.01), _MIN(BMS_ContChgCurAllowed / 2.0, OBS_CurLimit));
+				// VCU_CurRefAllowedOBG = _MIN((VCU_CurRefAllowedOBG + 0.01), _MIN(BMS_ContChgCurAllowed / 2.0, OBG_CurLimit));
+				// VCU_CurRefAllowedOBS = _MIN((VCU_CurRefAllowedOBS + 0.01), _MIN(BMS_ContChgCurAllowed / 2.0, OBS_CurLimit));
 			}
 
 			if (BMS_CurOutput > BMS_ContDischgCurAllowed)
@@ -1835,44 +1839,44 @@ void mode_switch(void)
 					{ // 加热回路闭合的情况下
 						if (OBC_CurMax > 0)
 						{ // OBC慢充加热 处理逻辑
-							VCU_CurRefAllowedOBG = 0;
-							VCU_VolRefAllowedOBG = 0;
-							VCU_CurRefAllowedOBS = 0;
-							VCU_VolRefAllowedOBS = 0;
+							// VCU_CurRefAllowedOBG = 0;
+							// VCU_VolRefAllowedOBG = 0;
+							// VCU_CurRefAllowedOBS = 0;
+							// VCU_VolRefAllowedOBS = 0;
 							VCU_CurRefAllowedOBC = OBC_CurMax;
 							VCU_VolRefAllowedOBC = 394;
 							VCU_EnableDCDC = ENABLE_DCDC;
 							VCU_EnableDCAC = ENABLE_DCAC;
 							VCU_ChgCmdOBC = ENABLE_HEAT;
-							VCU_ChgCmdOBG = ENABLE_CHG;
-							VCU_ChgCmdOBS = ENABLE_CHG;
+							// VCU_ChgCmdOBG = ENABLE_CHG;
+							// VCU_ChgCmdOBS = ENABLE_CHG;
 						}
 						if (BMS_DCChgStatus > 0)
 						{ // 直流加热 处理逻辑
-							VCU_CurRefAllowedOBG = 0;
-							VCU_VolRefAllowedOBG = 0;
-							VCU_CurRefAllowedOBS = 0;
-							VCU_VolRefAllowedOBS = 0;
+							// VCU_CurRefAllowedOBG = 0;
+							// VCU_VolRefAllowedOBG = 0;
+							// VCU_CurRefAllowedOBS = 0;
+							// VCU_VolRefAllowedOBS = 0;
 							VCU_CurRefAllowedOBC = 0;
 							VCU_VolRefAllowedOBC = 0;
 							VCU_EnableDCDC = DISABLE_DCDC;
 							VCU_EnableDCAC = DISABLE_DCAC;
 							VCU_ChgCmdOBC = FINISH_CHG;
-							VCU_ChgCmdOBG = ENABLE_CHG;
-							VCU_ChgCmdOBS = ENABLE_CHG;
+							// VCU_ChgCmdOBG = ENABLE_CHG;
+							// VCU_ChgCmdOBS = ENABLE_CHG;
 							VCU_HeatingEnableBMS = 1; // 22.8.4  维持加热允许
 							if (BMS_HVPowerAllow == 1)
 							{
 								VCU_HVPowerEnableBMS = 1;
 								if (BMS_HVPowerLoopStatus == 1)
 								{ //{高压回路已经闭合  开启DCDC
-									VCU_VolRefAllowedOBG = 0;
-									VCU_VolRefAllowedOBS = 0;
+									// VCU_VolRefAllowedOBG = 0;
+									// VCU_VolRefAllowedOBS = 0;
 									VCU_EnableDCDC = ENABLE_DCDC;
 									VCU_EnableDCAC = DISABLE_DCAC;
 									VCU_ChgCmdOBC = FINISH_CHG;
-									VCU_ChgCmdOBG = ENABLE_CHG;
-									VCU_ChgCmdOBS = ENABLE_CHG;
+									// VCU_ChgCmdOBG = ENABLE_CHG;
+									// VCU_ChgCmdOBS = ENABLE_CHG;
 									VCU_HeatingEnableBMS = 1; // 22.8.4  维持加热允许
 								}
 							} // else  VCU_HVPowerEnableBMS = 0;
@@ -1910,31 +1914,31 @@ void mode_switch(void)
 					VCU_HeatingEnableBMS = 0;
 					if (OBC_CurMax > 0)
 					{
-						VCU_CurRefAllowedOBG = 0;
-						VCU_VolRefAllowedOBG = 0;
-						VCU_CurRefAllowedOBS = 0;
-						VCU_VolRefAllowedOBS = 0;
+						// VCU_CurRefAllowedOBG = 0;
+						// VCU_VolRefAllowedOBG = 0;
+						// VCU_CurRefAllowedOBS = 0;
+						// VCU_VolRefAllowedOBS = 0;
 						VCU_CurRefAllowedOBC = 0;
 						VCU_VolRefAllowedOBC = 0;
 						VCU_EnableDCDC = DISABLE_DCDC;
 						VCU_EnableDCAC = DISABLE_DCAC;
 						VCU_ChgCmdOBC = DISABLE_CHG;
-						VCU_ChgCmdOBG = ENABLE_CHG;
-						VCU_ChgCmdOBS = ENABLE_CHG;
+						// VCU_ChgCmdOBG = ENABLE_CHG;
+						// VCU_ChgCmdOBS = ENABLE_CHG;
 					}
 					// BMS 掉线且高压回路断路 且手动开关闭合具备应急供电的功能
 				}
 			}
 			if ((BMS_HVPowerLoopStatus == 1) && (BMS_HeatingRequest == 0) && (BMS_HeatingLoopStatus == 0))
 			{ // if ( BMS_HVPowerLoopStatus == 1 ) { //22.8.4 //{高压回路已经闭合  //此处添加是否允许跳转到 模式1
-				VCU_VolRefAllowedOBG = 0;
-				VCU_VolRefAllowedOBS = 0;
+				// VCU_VolRefAllowedOBG = 0;
+				// VCU_VolRefAllowedOBS = 0;
 				VCU_VolRefAllowedOBC = BMS_VolOutput + 10; //{比高压电池的输出电压大10V
 				VCU_EnableDCDC = ENABLE_DCDC;
 				VCU_EnableDCAC = ENABLE_DCAC;
 				VCU_ChgCmdOBC = DISABLE_CHG;
-				VCU_ChgCmdOBG = ENABLE_CHG;
-				VCU_ChgCmdOBS = ENABLE_CHG;
+				// VCU_ChgCmdOBG = ENABLE_CHG;
+				// VCU_ChgCmdOBS = ENABLE_CHG;
 				VCU_ChgStatusBMS = 1; //{状态跳转
 			}
 		}
@@ -1949,21 +1953,21 @@ void mode_switch(void)
 					{
 						VCU_VolRefAllowedOBC = BMS_VolOutput + 10; //{比高压电池的输出电压大10V
 						VCU_ChgCmdOBC = ENABLE_CHG;
-						VCU_CurRefAllowedOBG = 0;
-						VCU_CurRefAllowedOBS = 0;
+						// VCU_CurRefAllowedOBG = 0;
+						// VCU_CurRefAllowedOBS = 0;
 					}
 					else
 					{
-						VCU_CurRefAllowedOBG = _MIN((VCU_CurRefAllowedOBG + 0.01), _MIN((BMS_CurOutput - 1) / 2.0, OBG_CurLimit));
-						VCU_CurRefAllowedOBS = _MIN((VCU_CurRefAllowedOBS + 0.01), _MIN((BMS_CurOutput - 1) / 2.0, OBS_CurLimit));
+						// VCU_CurRefAllowedOBG = _MIN((VCU_CurRefAllowedOBG + 0.01), _MIN((BMS_CurOutput - 1) / 2.0, OBG_CurLimit));
+						// VCU_CurRefAllowedOBS = _MIN((VCU_CurRefAllowedOBS + 0.01), _MIN((BMS_CurOutput - 1) / 2.0, OBS_CurLimit));
 					}
 				}
 				else
 				{
 					VCU_ChgCmdOBC = DISABLE_CHG;
 					VCU_CurRefAllowedOBC = 0;
-					VCU_CurRefAllowedOBG = 0;
-					VCU_CurRefAllowedOBS = 0;
+					// VCU_CurRefAllowedOBG = 0;
+					// VCU_CurRefAllowedOBS = 0;
 				}
 			}
 			else
@@ -1979,13 +1983,13 @@ void mode_switch(void)
 			{
 				VCU_CurRefAllowedOBC = 0;
 				VCU_VolRefAllowedOBC = 0;
-				VCU_CurRefAllowedOBG = 0;
-				VCU_VolRefAllowedOBG = 0;
-				VCU_CurRefAllowedOBS = 0;
-				VCU_VolRefAllowedOBS = 0;
+				// VCU_CurRefAllowedOBG = 0;
+				// VCU_VolRefAllowedOBG = 0;
+				// VCU_CurRefAllowedOBS = 0;
+				// VCU_VolRefAllowedOBS = 0;
 				VCU_ChgCmdOBC = DISABLE_CHG;
-				VCU_ChgCmdOBG = DISABLE_CHG; // ENABLE_CHG
-				VCU_ChgCmdOBS = DISABLE_CHG; // ENABLE_CHG
+				// VCU_ChgCmdOBG = DISABLE_CHG; // ENABLE_CHG
+				// VCU_ChgCmdOBS = DISABLE_CHG; // ENABLE_CHG
 				VCU_ChgStatusBMS = 3;
 				// VCU_RunCmdBMS = 0;  //循环充电 间歇停止充电时，不给BMS发充电模式
 			}
@@ -1998,13 +2002,13 @@ void mode_switch(void)
 			{
 				VCU_CurRefAllowedOBC = 0;
 				VCU_VolRefAllowedOBC = 0;
-				VCU_CurRefAllowedOBG = 0;
-				VCU_VolRefAllowedOBG = 0;
-				VCU_CurRefAllowedOBS = 0;
-				VCU_VolRefAllowedOBS = 0;
+				// VCU_CurRefAllowedOBG = 0;
+				// VCU_VolRefAllowedOBG = 0;
+				// VCU_CurRefAllowedOBS = 0;
+				// VCU_VolRefAllowedOBS = 0;
 				VCU_ChgCmdOBC = DISABLE_CHG;
-				VCU_ChgCmdOBG = DISABLE_CHG; // ENABLE_CHG
-				VCU_ChgCmdOBS = DISABLE_CHG; // ENABLE_CHG
+				// VCU_ChgCmdOBG = DISABLE_CHG; // ENABLE_CHG
+				// VCU_ChgCmdOBS = DISABLE_CHG; // ENABLE_CHG
 				VCU_ChgStatusBMS = 3;
 				// VCU_RunCmdBMS = 0;  //循环充电 间歇停止充电时，不给BMS发充电模式
 			}
@@ -2098,10 +2102,10 @@ void mode_switch(void)
 				// VCU_ChgCmdOBS = DISABLE_CHG;
 				VCU_CurRefAllowedOBC = 0;
 				VCU_VolRefAllowedOBC = 0;
-				VCU_CurRefAllowedOBG = 0;
-				VCU_VolRefAllowedOBG = 0;
-				VCU_CurRefAllowedOBS = 0;
-				VCU_VolRefAllowedOBS = 0;
+				// VCU_CurRefAllowedOBG = 0;
+				// VCU_VolRefAllowedOBG = 0;
+				// VCU_CurRefAllowedOBS = 0;
+				// VCU_VolRefAllowedOBS = 0;
 				BMS_SOC = 0;
 			}
 		}
@@ -2109,9 +2113,9 @@ void mode_switch(void)
 
 		//****************************************充电模式处理**************************************************//
 
-		if (((VCU_ChgCmdOBC == ENABLE_CHG) || (VCU_ChgCmdOBG == ENABLE_CHG) || (VCU_ChgCmdOBS == ENABLE_CHG)) && (BMS_DCChgStatus == 0))
+		if (((VCU_ChgCmdOBC == ENABLE_CHG)) && (BMS_DCChgStatus == 0))
 		{
-			if ((OBC_CurOutput > 0) || (OBG_PwmRef > 0) || (OBS_PwmRef > 0))
+			if ((OBC_CurOutput > 0))
 			{
 				VCU_RunCmdBMS = 1; //{发给BMS告诉BMS目前电池是处于充电状态,可以做满充校准
 			}
@@ -2141,8 +2145,8 @@ void mode_switch(void)
 			VCU_CurRefAllowedOBC = 0;	   // 直流充电，关闭OBC电流
 			VCU_VolRefAllowedOBC = 0;	   // 直流充电，关闭OBC电压
 			VCU_RunCmdBMS = 0;			   // 直流枪连接，VCU只能发放电状态
-			VCU_ChgCmdOBG = DISABLE_CHG;   // ENABLE_CHG
-			VCU_ChgCmdOBS = DISABLE_CHG;   // ENABLE_CHG
+			// VCU_ChgCmdOBG = DISABLE_CHG;   // ENABLE_CHG
+			// VCU_ChgCmdOBS = DISABLE_CHG;   // ENABLE_CHG
 			VCU_EnableDCAC = DISABLE_DCAC; // 直流充电，关闭220V负载用电
 		}
 		//****************************************充电模式处理**************************************************//
@@ -2154,17 +2158,17 @@ void mode_switch(void)
 		//****************************************应急用电**************************************************//
 		if ((OBC_CurMax > 0) && (EF_NodeLostBMS == 1) && (BMS_HVPowerLoopStatus == 0) && (BMS_DCChgStatus == 0) && (BMS_HVPowerAllow == 0))
 		{
-			VCU_CurRefAllowedOBG = 0;
-			VCU_VolRefAllowedOBG = 0;
-			VCU_CurRefAllowedOBS = 0;
-			VCU_VolRefAllowedOBS = 0;
+			// VCU_CurRefAllowedOBG = 0;
+			// VCU_VolRefAllowedOBG = 0;
+			// VCU_CurRefAllowedOBS = 0;
+			// VCU_VolRefAllowedOBS = 0;
 			VCU_CurRefAllowedOBC = OBC_CurMax;
 			VCU_VolRefAllowedOBC = 360;
 			VCU_EnableDCDC = ENABLE_DCDC;
 			VCU_EnableDCAC = ENABLE_DCAC;
 			VCU_ChgCmdOBC = ENABLE_HEAT;
-			VCU_ChgCmdOBG = DISABLE_CHG; // ENABLE_CHG
-			VCU_ChgCmdOBS = DISABLE_CHG; // ENABLE_CHG
+			// VCU_ChgCmdOBG = DISABLE_CHG; // ENABLE_CHG
+			// VCU_ChgCmdOBS = DISABLE_CHG; // ENABLE_CHG
 		}
 
 		//****************************************应急用电**************************************************//
@@ -2174,13 +2178,13 @@ void mode_switch(void)
 		{
 			VCU_CurRefAllowedOBC = 0;
 			VCU_VolRefAllowedOBC = 0;
-			VCU_CurRefAllowedOBG = 0;
-			VCU_VolRefAllowedOBG = 0;
-			VCU_CurRefAllowedOBS = 0;
-			VCU_VolRefAllowedOBS = 0;
+			// VCU_CurRefAllowedOBG = 0;
+			// VCU_VolRefAllowedOBG = 0;
+			// VCU_CurRefAllowedOBS = 0;
+			// VCU_VolRefAllowedOBS = 0;
 			VCU_ChgCmdOBC = FINISH_CHG;
-			VCU_ChgCmdOBG = DISABLE_CHG;
-			VCU_ChgCmdOBS = DISABLE_CHG;
+			// VCU_ChgCmdOBG = DISABLE_CHG;
+			// VCU_ChgCmdOBS = DISABLE_CHG;
 		}
 		//****************************************温度超过-20℃（不允许回馈式充电）****************************//
 
@@ -2191,17 +2195,17 @@ void mode_switch(void)
 	{ //{检测到手动开关断开
 		VCU_CurRefAllowedOBC = 0;
 		VCU_VolRefAllowedOBC = 0;
-		VCU_CurRefAllowedOBG = 0;
-		VCU_VolRefAllowedOBG = 0;
-		VCU_CurRefAllowedOBS = 0;
-		VCU_VolRefAllowedOBS = 0;
-		if ((OBC_CurOutput + OBG_CurOutput + OBS_CurOutput) < 2)
+		// VCU_CurRefAllowedOBG = 0;
+		// VCU_VolRefAllowedOBG = 0;
+		// VCU_CurRefAllowedOBS = 0;
+		// VCU_VolRefAllowedOBS = 0;
+		if ((OBC_CurOutput) < 2)
 		{ // OB端电流小于2A时,禁止AC负载端输出
 			VCU_EnableDCDC = DISABLE_DCDC;
 			VCU_EnableDCAC = DISABLE_DCAC;
 			VCU_ChgCmdOBC = FINISH_CHG;
-			VCU_ChgCmdOBG = DISABLE_CHG;
-			VCU_ChgCmdOBS = DISABLE_CHG;
+			// VCU_ChgCmdOBG = DISABLE_CHG;
+			// VCU_ChgCmdOBS = DISABLE_CHG;
 			if (_ABS(BMS_CurOutput) < 2)
 			{							  //{BMS输出电流小于2A后,下高压
 				VCU_HVPowerEnableBMS = 2; //{主动下高压
@@ -2210,8 +2214,8 @@ void mode_switch(void)
 	}
 
 	VCU_CurRefAllowedOBC = _MIN(VCU_CurRefAllowedOBC, OBC_CurMax);
-	VCU_CurRefAllowedOBG = _MIN(VCU_CurRefAllowedOBG, OBG_CurLimit);
-	VCU_CurRefAllowedOBS = _MIN(VCU_CurRefAllowedOBS, OBS_CurLimit);
+	// VCU_CurRefAllowedOBG = _MIN(VCU_CurRefAllowedOBG, OBG_CurLimit);
+	// VCU_CurRefAllowedOBS = _MIN(VCU_CurRefAllowedOBS, OBS_CurLimit);
 
 	if ((BMS_DCChgStatus > 0) || (OBC_CurMax > 0))
 	{
@@ -2281,329 +2285,6 @@ void obc_tx(void)
 			CAN_vTransmit(18);
 		}
 		//}OBC_COMMAND
-	}
-}
-
-void gui_tx(void)
-{
-	static ubyte j = 0;
-	sword tmp = 0; //{用于CAN发送,必须是sword类型数据
-	ubyte i;
-	uword DC_VOL_display = 0;
-	float VCU_volInput;
-
-	if (MS500Cnt >= 50)
-	{
-		//{VCU_Status01
-		tmp = 0;
-		if (BMS_HVPowerAllow == 2)
-		{ //{bit0  电池状态
-			tmp = tmp | 0x01;
-		}
-		else
-		{
-			tmp = tmp & 0xFE;
-		}
-		if ((BMS_CurOutput < 0) && (BMS_HVPowerLoopStatus == 1))
-		{ //{bit1 充电闪电图标显示
-			tmp = tmp | 0x02;
-		}
-		else
-		{
-			tmp = tmp & 0xFD;
-		}
-
-		//*******************************增加ON档信号，指示行车充电*****************************//	23.4.20
-		uword engine_BOOST_OFF_cnt = 0;
-		uword solar_BOOST_OFF_cnt = 0;
-		uword engine_BOOST_ON = 0;
-		uword solar_BOOST_ON = 0;
-
-		VCU_volInput = _MAX(OBG_VolInput, OBS_VolInput);
-		if ((KEY_ON_EN == 1) && (VCU_volInput > 26.5))
-		{
-			engine_BOOST_ON = 1;
-			engine_BOOST_OFF_cnt = 0;
-			solar_BOOST_ON = 0;
-			solar_BOOST_OFF_cnt = 0;
-		}
-		else
-		{
-			if (engine_BOOST_ON == 1)
-			{
-				engine_BOOST_OFF_cnt++;
-				if (engine_BOOST_OFF_cnt > 10)
-				{
-					engine_BOOST_ON = 0;
-					engine_BOOST_OFF_cnt = 11;
-				}
-			}
-		}
-
-		if ((KEY_ON_EN == 0) && (VCU_volInput > 26.5) && (engine_BOOST_ON == 0))
-		{
-			solar_BOOST_ON = 1;
-			solar_BOOST_OFF_cnt = 0;
-		}
-		else
-		{
-			if (solar_BOOST_ON == 1)
-			{
-				solar_BOOST_OFF_cnt++;
-				if (solar_BOOST_OFF_cnt > 50)
-				{
-					solar_BOOST_ON = 0;
-					solar_BOOST_OFF_cnt = 51;
-				}
-			}
-		}
-
-		if ((solar_BOOST_ON == 0) && (engine_BOOST_ON == 1)) //{bit2 开启发电机充电图标
-		{
-			tmp = tmp | 0x04;
-			tmp = tmp & 0xF7;
-		}
-		if ((solar_BOOST_ON == 1) && (engine_BOOST_ON == 0)) //{bit3 开启太阳能充电图标
-		{
-			tmp = tmp | 0x08;
-			tmp = tmp & 0xFB;
-		}
-		if ((solar_BOOST_ON == 0) && (engine_BOOST_ON == 0)) // 关闭太阳能和行车充电图标
-		{
-			tmp = tmp & 0xF7;
-			tmp = tmp & 0xFB;
-		}
-		//*******************************增加ON档信号，指示行车充电*****************************//	23.4.20
-		/*
-				if ( ( OBG_PwmRef > 50 ) || ( OBS_PwmRef > 50 ) )) {       //{bit2 发电机开启充电//30
-					tmp = tmp | 0x04;
-					tmp = tmp & 0xF7;
-				} else if ( ( OBG_PwmRef > 10 ) || ( OBS_PwmRef > 10 ) ) {  //{bit3 太阳能 开启充电
-					tmp = tmp | 0x08;
-					tmp = tmp & 0xFB;
-				} else {
-					tmp = tmp & 0xF7;
-					tmp = tmp & 0xFB;
-				}
-		*/
-		if ((OBC_CurOutput > 0) || (BMS_DCChgStatus > 0))
-		{ //{bit4  交流桩或直流桩开启充电
-			tmp = tmp | 0x10;
-		}
-		else
-		{
-			tmp = tmp & 0xEF;
-		}
-		//
-		//		if (DCDC_VolOutput > 26 ) {  //{bit3 太阳能 开启充电
-		//			tmp = tmp | 0x08;
-		//		    tmp = tmp & 0xFB;}
-		//		else {
-		//			tmp = tmp & 0xF7;
-		//		    tmp = tmp & 0xFB;}
-
-		// 希欧德屏幕----指示灯状态修改 -----有故障亮红灯
-		//		if ( DCDC_VolOutput < 12 ) {  //{bit5
-		//			tmp = tmp & 0xDF;
-		//		} else {
-		//			if ( DCDC_VolOutput >= 12.5 ) {
-		//				tmp = tmp | 0x20;
-		//			}
-		//		}
-		//		if ( DCAC_SysStatus == 2 ) {  //{bit6
-		//			tmp = tmp | 0x40;
-		//		} else {
-		//			tmp = tmp & 0xBF;
-		//		}
-		//**************************************DC模块状态显示*****************************************//
-
-		if (DCDC_FaultCode == 0)
-		{
-			tmp = tmp & 0xDF;
-		} // DC模块故障码 为0，   显示DC模块正常
-		else
-		{
-			tmp = tmp | 0x20;
-		} // DC模块故障码 不为0，显示DC模块异常
-
-		//		if ( DCDC_VolOutput < 24.5 ) {    //DCDC_FaultCode
-		//			tmp = tmp | 0x20;            //{bit5   DC降压模块状态异常 //24
-		//		} else {
-		//		         if ( DCDC_VolOutput >= 25.0 ) {
-		//		    	   tmp = tmp & 0xDF;     //{bit5   DC降压模块状态正常
-		//		     }
-		//		  }
-
-		//**************************************DC模块状态显示*****************************************//
-
-		//**************************************AC模块状态显示*****************************************//
-		if ((EF_StatusLostDCAC == 1) || (DCAC_SysStatus == 3))
-		{ //{bit6 DCAC模块状态
-			tmp = tmp | 0x40;
-		}
-		else
-		{
-			tmp = tmp & 0xBF;
-		}
-		//**************************************AC模块状态显示*****************************************//
-		TXData[0] = (ubyte)tmp;
-		TXData[1] = 0;
-		TXData[2] = 0;
-		TXData[3] = 0;
-		TXData[4] = 0;
-		TXData[5] = 0;
-		if (EF_StatusLostDCDC == 0)
-			DC_VOL_display = ((ubyte)DCDC_VolOutput) * 10;
-		else
-			DC_VOL_display = ((ubyte)LvDcMeaFilted) * 10;
-
-		if (DC_VOL_display > 255)
-			DC_VOL_display = 255;
-		else
-			DC_VOL_display = DC_VOL_display;
-
-		TXData[6] = DC_VOL_display;
-		TXData[7] = BMS_SOC;
-		if (CAN_ubRequestMsgObj(26))
-		{ //--------------------发送0x10080000报文
-			CAN_vLoadData(26, TXData);
-			CAN_vTransmit(26);
-		}
-
-		//{VCU_FaultInfo
-		if (j == FAULT_NUM)
-			j = 0;
-		if (j == 0)
-		{
-			for (i = 0; i < FAULT_NUM; i++)
-			{
-				FaultMatrix[i] = 0;
-			}
-			if (BMS_Code1 & 0x02)
-				FaultMatrix[0] = 2;
-			if (BMS_Code1 & 0x20)
-				FaultMatrix[1] = 6;
-			if (BMS_Code1 & 0x40)
-				FaultMatrix[2] = 7;
-			if (BMS_Code2 & 0x02)
-				FaultMatrix[3] = 10;
-			if (BMS_Code2 & 0x04)
-				FaultMatrix[4] = 11;
-			if (BMS_Code2 & 0x08)
-				FaultMatrix[5] = 12;
-			if (BMS_Code2 & 0x10)
-				FaultMatrix[6] = 13;
-			if (BMS_Code2 & 0x20)
-				FaultMatrix[7] = 14;
-			if (BMS_Code2 & 0x40)
-				FaultMatrix[8] = 15;
-			if (BMS_Code2 & 0x80)
-				FaultMatrix[9] = 16;
-			if (BMS_Code3 & 0x01)
-				FaultMatrix[10] = 17;
-			if (BMS_Code3 & 0x04)
-				FaultMatrix[11] = 19;
-			if (BMS_Code3 & 0x08)
-				FaultMatrix[12] = 20;
-			if (BMS_Code3 & 0x10)
-				FaultMatrix[13] = 21;
-			if (BMS_Code3 & 0x20)
-				FaultMatrix[14] = 22;
-			if (BMS_Code3 & 0x40)
-				FaultMatrix[15] = 23;
-			if (BMS_Code3 & 0x80)
-				FaultMatrix[16] = 24;
-			if (BMS_Code4 & 0x01)
-				FaultMatrix[17] = 25;
-			if (BMS_Code4 & 0x02)
-				FaultMatrix[18] = 26;
-			if (BMS_Code4 & 0x04)
-				FaultMatrix[19] = 27;
-			if (BMS_Code4 & 0x08)
-				FaultMatrix[20] = 28;
-			if (BMS_Code4 & 0x10)
-				FaultMatrix[21] = 29;
-			if (BMS_Code4 & 0x20)
-				FaultMatrix[22] = 30;
-			if (BMS_Code4 & 0x40)
-				FaultMatrix[23] = 31;
-			if (BMS_Code4 & 0x80)
-				FaultMatrix[24] = 32;
-			if (BMS_Code5 & 0x01)
-				FaultMatrix[25] = 33;
-			if (BMS_Code5 & 0x02)
-				FaultMatrix[26] = 34;
-			if (BMS_Code5 & 0x04)
-				FaultMatrix[27] = 35;
-			if (BMS_Code5 & 0x08)
-				FaultMatrix[28] = 36;
-			if (BMS_Code5 & 0x10)
-				FaultMatrix[29] = 37;
-			if (BMS_Code5 & 0x20)
-				FaultMatrix[30] = 38;
-			if (BMS_Code5 & 0x40)
-				FaultMatrix[31] = 39;
-			if (DCDC_FaultCode)
-				FaultMatrix[32] = 39 + DCDC_FaultCode;
-			if (OBC_FaultCode)
-				FaultMatrix[33] = 46 + OBC_FaultCode;
-			if (OBG_FaultPwm > 0)
-				FaultMatrix[34] = 60;
-			if (OBS_FaultPwm > 0)
-				FaultMatrix[35] = 61;
-			if (ErrorCode & 0x00000001)
-				FaultMatrix[36] = 62;
-			if (ErrorCode & 0x00000002)
-				FaultMatrix[37] = 63;
-			if (ErrorCode & 0x00000004)
-				FaultMatrix[38] = 64;
-			if (ErrorCode & 0x00000008)
-				FaultMatrix[39] = 65;
-			if (ErrorCode & 0x00000010)
-				FaultMatrix[40] = 66;
-			if (ErrorCode & 0x00000020)
-				FaultMatrix[41] = 67;
-			if (ErrorCode & 0x00000040)
-				FaultMatrix[42] = 68;
-			if (ErrorCode & 0x00000080)
-				FaultMatrix[43] = 69;
-			if (ErrorCode & 0x00000100)
-				FaultMatrix[44] = 70;
-			if (ErrorCode & 0x00000200)
-				FaultMatrix[45] = 71;
-			if (ErrorCode & 0x00000400)
-				FaultMatrix[46] = 72;
-			if (ErrorCode & 0x00000800)
-				FaultMatrix[47] = 73;
-		}
-		TXData[0] = 0;
-		while (j < FAULT_NUM)
-		{
-			if (FaultMatrix[j++] > 0)
-			{
-				TXData[0] = FaultMatrix[j - 1];
-				break;
-			}
-		}
-		TXData[1] = 0;
-		TXData[2] = 0;
-		TXData[3] = 0;
-		TXData[4] = 0;
-		TXData[5] = 0;
-		TXData[6] = 0;
-		TXData[7] = 0;
-		if (CAN_ubRequestMsgObj(27))
-		{ //--------------------发送0x100C0000报文
-			CAN_vLoadData(27, TXData);
-			CAN_vTransmit(27);
-		}
-		else
-		{
-			// CAN_vInit();
-			CAN_NCR1 = 0x00000041;
-			CAN_NECNT1 = 0x00600000;
-			CAN_NCR1 &= ~0x00000041;
-		}
 	}
 }
 
@@ -2687,7 +2368,7 @@ void debug_tx(void)
 
 		TXData[0] = 0;
 		TXData[1] = 0;
-		TXData[2] = VCU_ChgCmd << 6 | VCU_ChgCmdOBS << 5 | VCU_ChgCmdOBG << 4 | EF_NodeLostDCAC << 3 | EF_NodeLostDCDC << 2 | EF_NodeLostOBC << 1 | EF_NodeLostBMS;
+		TXData[2] = VCU_ChgCmd << 6 | EF_NodeLostDCAC << 3 | EF_NodeLostDCDC << 2 | EF_NodeLostOBC << 1 | EF_NodeLostBMS;
 		TXData[3] = VCU_EmptyFlagBMS_class02 << 2 | VCU_ChgStatusBMS;
 		tmp = (ubyte)VCU_SBOperationDCDC;
 		TXData[4] = tmp;
@@ -2773,10 +2454,10 @@ void debug_tx(void)
 					FaultMatrix[32] = 39 + DCDC_FaultCode;
 				if (OBC_FaultCode)
 					FaultMatrix[33] = 46 + OBC_FaultCode;
-				if (OBG_FaultPwm > 0)
-					FaultMatrix[34] = 60;
-				if (OBS_FaultPwm > 0)
-					FaultMatrix[35] = 61;
+				// if (OBG_FaultPwm > 0)
+				// 	FaultMatrix[34] = 60;
+				// if (OBS_FaultPwm > 0)
+				// 	FaultMatrix[35] = 61;
 				if (ErrorCode & 0x00000001)
 					FaultMatrix[36] = 62;
 				if (ErrorCode & 0x00000002)
@@ -2833,12 +2514,12 @@ void debug_tx(void)
 		//	CAN_vTransmit( 4 );
 		// }
 
-		tmp = OBS_VolInput * 1000;
-		TXData[0] = tmp;
-		TXData[1] = tmp >> 8;
-		tmp = OBG_VolInput * 1000;
-		TXData[2] = tmp;
-		TXData[3] = tmp >> 8;
+		// tmp = OBS_VolInput * 1000;
+		// TXData[0] = tmp;
+		TXData[1] = 0;//tmp >> 8;
+		// tmp = OBG_VolInput * 1000;
+		TXData[2] = 0;//tmp;
+		TXData[3] = 0;//tmp >> 8;
 		tmp = VCU_VolOutput * 100;
 		TXData[4] = tmp;
 		TXData[5] = tmp >> 8;
@@ -2852,35 +2533,35 @@ void debug_tx(void)
 			CAN_vTransmit(5);
 		}
 
-		tmp = (OBS_CurOutput - 30) * 1000;
-		TXData[0] = tmp;
-		TXData[1] = tmp >> 8;
-		tmp = (OBG_CurOutput - 30) * 1000;
-		TXData[2] = tmp;
-		TXData[3] = tmp >> 8;
-		tmp = OBS_PwmRef;
-		TXData[4] = tmp;
-		TXData[5] = tmp >> 8;
-		tmp = OBG_PwmRef;
-		TXData[6] = tmp;
-		TXData[7] = tmp >> 8;
-		if (CAN_ubRequestMsgObj(6))
-		{
-			CAN_vLoadData(6, TXData);
-			CAN_vTransmit(6);
-		}
-		else
-		{
-			// CAN_vInit();
-			CAN_NCR0 = 0x00000041;
-			CAN_NECNT0 = 0x00600000;
-			CAN_NCR0 &= ~0x00000041;
-		}
+		// tmp = (OBS_CurOutput - 30) * 1000;
+		// TXData[0] = tmp;
+		// TXData[1] = tmp >> 8;
+		// tmp = (OBG_CurOutput - 30) * 1000;
+		// TXData[2] = tmp;
+		// TXData[3] = tmp >> 8;
+		// tmp = OBS_PwmRef;
+		// TXData[4] = tmp;
+		// TXData[5] = tmp >> 8;
+		// tmp = OBG_PwmRef;
+		// TXData[6] = tmp;
+		// TXData[7] = tmp >> 8;
+		// if (CAN_ubRequestMsgObj(6))
+		// {
+		// 	CAN_vLoadData(6, TXData);
+		// 	CAN_vTransmit(6);
+		// }
+		// else
+		// {
+		// 	// CAN_vInit();
+		// 	CAN_NCR0 = 0x00000041;
+		// 	CAN_NECNT0 = 0x00600000;
+		// 	CAN_NCR0 &= ~0x00000041;
+		// }
 
-		if (OBS_PwmRef > 10 || OBG_PwmRef > 10)
-			IO_P8_0 = 0;
-		else
-			IO_P8_0 = 1; //    PWM升压启动 即打开风扇
+		// if (OBS_PwmRef > 10 || OBG_PwmRef > 10)
+		// 	IO_P8_0 = 0;
+		// else
+		// 	IO_P8_0 = 1; //    PWM升压启动 即打开风扇
 
 		// tst = (sword*)(&DCDC_CurOutput);
 		// TXData[0] = (ubyte) *tst;
@@ -2968,12 +2649,12 @@ void MainTask(void)
 	volcur_sample();
 	error_check();
 	mode_switch();
-	obg_boost();
-	obs_boost();
+	// obg_boost();
+	// obs_boost();
 
 	bms_tx();
 	obc_tx();
-	gui_tx();
+	// gui_tx();
 	dcac_tx();
 	dcdc_tx();
 	debug_tx();
