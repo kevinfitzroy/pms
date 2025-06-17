@@ -22,8 +22,8 @@
 #define ERROR_CNT 10
 #define FRAMEDROPCNT 10
 
-#define DISABLE_DCAC 0
-#define ENABLE_DCAC 1
+// #define DISABLE_DCAC 0
+// #define ENABLE_DCAC 1
 
 #define DISABLE_DCDC 4
 #define ENABLE_DCDC 8
@@ -68,7 +68,7 @@ float VolRefRamp = 0;
 // float OBS_CurOutputPrev = 0;
 // float OBG_CurOutput = 0;
 float OBC_CurMeaFilted = 0;
-float DCAC_CurReq = 0;
+// float DCAC_CurReq = 0;
 float DCDC_CurReq = 0;
 
 // float OBS_VolInput = 0;
@@ -231,15 +231,15 @@ ubyte EF_Status03LostOBC = 0;
 ubyte EF_NodeLostOBC = 0;
 ubyte LostCntOBC = 0;
 
-ubyte VCU_EnableDCAC = DISABLE_DCAC; //{默认关闭
+// ubyte VCU_EnableDCAC = DISABLE_DCAC; //{默认关闭
 
 ubyte VCU_StatusDropCntDCAC = 0;
 
-float DCAC_CurInput = 0;
-float DCAC_TempModule = 0;
+// float DCAC_CurInput = 0;
+// float DCAC_TempModule = 0;
 
-ubyte EF_StatusLostDCAC = 0;
-ubyte EF_NodeLostDCAC = 0;
+// ubyte EF_StatusLostDCAC = 0;
+// ubyte EF_NodeLostDCAC = 0;
 
 ubyte EF_StatusLostGUI = 0;
 ubyte EF_NodeLostGUI = 0;
@@ -272,8 +272,8 @@ float OBC_SysStatus = 0;
 // ubyte OBS_SysStatus = 0;
 // ubyte DCAC_TempCapOBG = 0;
 // ubyte DCAC_TempCapOBS = 0;
-ubyte DCAC_SysStatus = 0;
-ubyte DCAC_HandSwitch = 0; //{为1时执行下电流程
+// ubyte DCAC_SysStatus = 0;
+// ubyte DCAC_HandSwitch = 0; //{为1时执行下电流程
 ubyte DCDC_SysStatus = 0;
 
 ubyte VCU_ChgStatusBMS = 0; // 0:高压未闭合；1:为高压闭合  2:无     3:满充状态待机状态 循环充电
@@ -288,9 +288,9 @@ float VCU_PowComp = 0;
 float VCU_TempMax = 0;
 float VolRefBoost = 0;
 
-ubyte VCU_PWMDebug = 0;
-ubyte VCU_PWMEnable = 0;
-ubyte VCU_HandSwitchGUI = 0;
+// ubyte VCU_PWMDebug = 0;
+// ubyte VCU_PWMEnable = 0;
+// ubyte VCU_HandSwitchGUI = 0;
 
 ubyte MS10Cnt = 0;
 ubyte MS20Cnt = 0;
@@ -386,7 +386,7 @@ void vars_clear_01(void)
 	// VCU_VolRefAllowedOBG = 0;
 	// VCU_VolRefAllowedOBS = 0;
 
-	VCU_EnableDCAC = DISABLE_DCAC;
+	// VCU_EnableDCAC = DISABLE_DCAC;
 	VCU_EnableDCDC = DISABLE_DCDC;
 	VCU_ChgCmdOBC = FINISH_CHG;
 	// VCU_ChgCmdOBG = DISABLE_CHG;
@@ -755,35 +755,36 @@ void obc_rx(void)
 
 void dcac_rx(void) //{在debug_rx()前执行
 {
-	if (MS100Cnt >= 10)
-	{
-		//{DCAC_Status--------------------接收0x04C80000报文
-		if (CAN_ubNewData(23))
-		{
-			CAN_vGetMsgObj(23, &RXObj);
-			CAN_vReleaseObj(23);
-			DCAC_SysStatus = RXObj.ubData[0] & 0x0F;
-			if (VCU_HandSwitchGUI == 0) // 如果接收到屏幕强制下高压的指令，不再接收DCAC传过来的开关状态信息
-				DCAC_HandSwitch = (RXObj.ubData[0] >> 4) & 0x01;
-			DCAC_TempModule = RXObj.ubData[1] - 50;
-			// DCAC_TempCapOBG = RXObj.ubData[2] - 50;
-			// DCAC_TempCapOBS = RXObj.ubData[3] - 50;
-			VCU_StatusDropCntDCAC = 0;
-			EF_StatusLostDCAC = 0;
-		}
-		else
-		{
-			if (VCU_StatusDropCntDCAC <= FRAMEDROPCNT)
-			{
-				VCU_StatusDropCntDCAC++;
-			}
-			else
-			{
-				EF_StatusLostDCAC = 1;
-			}
-		}
-		//}DCAC_Status
-	}
+
+	// if (MS100Cnt >= 10)
+	// {
+	// 	//{DCAC_Status--------------------接收0x04C80000报文
+	// 	if (CAN_ubNewData(23))
+	// 	{
+	// 		CAN_vGetMsgObj(23, &RXObj);
+	// 		CAN_vReleaseObj(23);
+	// 		DCAC_SysStatus = RXObj.ubData[0] & 0x0F;
+	// 		if (VCU_HandSwitchGUI == 0) // 如果接收到屏幕强制下高压的指令，不再接收DCAC传过来的开关状态信息
+	// 			DCAC_HandSwitch = (RXObj.ubData[0] >> 4) & 0x01;
+	// 		DCAC_TempModule = RXObj.ubData[1] - 50;
+	// 		// DCAC_TempCapOBG = RXObj.ubData[2] - 50;
+	// 		// DCAC_TempCapOBS = RXObj.ubData[3] - 50;
+	// 		VCU_StatusDropCntDCAC = 0;
+	// 		EF_StatusLostDCAC = 0;
+	// 	}
+	// 	else
+	// 	{
+	// 		if (VCU_StatusDropCntDCAC <= FRAMEDROPCNT)
+	// 		{
+	// 			VCU_StatusDropCntDCAC++;
+	// 		}
+	// 		else
+	// 		{
+	// 			EF_StatusLostDCAC = 1;
+	// 		}
+	// 	}
+	// 	//}DCAC_Status
+	// }
 }
 
 void dcdc_rx(void)
@@ -852,12 +853,12 @@ void debug_rx(void) //{在dcac_rx()后执行
 		{
 			CAN_vGetMsgObj(25, &RXObj);
 			CAN_vReleaseObj(25);
-			if (RXObj.ubData[0])
-			{
-				VCU_HandSwitchGUI = 1;
-				DCAC_HandSwitch = 1; //{接收到屏幕上强制下高压的指令
-			}
-			VCU_PWMEnable = RXObj.ubData[1] & 0x01; //{接收屏幕发过来的关DCAC输出指令<004(20201216)2.>
+			// if (RXObj.ubData[0])
+			// {
+			// 	// VCU_HandSwitchGUI = 1;
+			// 	// DCAC_HandSwitch = 1; //{接收到屏幕上强制下高压的指令
+			// }
+			// VCU_PWMEnable = RXObj.ubData[1] & 0x01; //{接收屏幕发过来的关DCAC输出指令<004(20201216)2.>
 			VCU_StatusDropCntGUI = 0;
 			EF_StatusLostGUI = 0;
 		}
@@ -1150,10 +1151,10 @@ void error_check(void)
 			// 	}
 			// }
 			//{20201211_002:只要DCAC出PWM波,就把小功率补偿中加一个45W
-			if ((VCU_PWMEnable == 0) && (DCAC_SysStatus == 2))
-			{
-				tmpPow45 = 45;
-			}
+			// if ((VCU_PWMEnable == 0) && (DCAC_SysStatus == 2))
+			// {
+			// 	tmpPow45 = 45;
+			// }
 			//}20201211_002
 			if (DCDC_CurOutput < 1.0)
 			{
@@ -1201,25 +1202,25 @@ void error_check(void)
 		// VCU_PowComp = 0;
 	}
 
-	if (EF_StatusLostDCAC)
-	{
-		// ErrorCode |= (uword)0x01 << 11;  //故障 73 //0X0000800
-		// EF_NodeLostDCAC = 1;
-	}
-	else
-	{
-		EF_NodeLostDCAC = 0;
-	}
+	// if (EF_StatusLostDCAC)
+	// {
+	// 	// ErrorCode |= (uword)0x01 << 11;  //故障 73 //0X0000800
+	// 	// EF_NodeLostDCAC = 1;
+	// }
+	// else
+	// {
+	// 	EF_NodeLostDCAC = 0;
+	// }
 
-	if (EF_StatusLostGUI)
-	{
-		EF_NodeLostGUI = 1;
-		VCU_PWMEnable = 0;
-	}
-	else
-	{
-		EF_NodeLostGUI = 0;
-	}
+	// if (EF_StatusLostGUI)
+	// {
+	// 	EF_NodeLostGUI = 1;
+	// 	VCU_PWMEnable = 0;
+	// }
+	// else
+	// {
+	// 	EF_NodeLostGUI = 0;
+	// }
 
 	if (BMS_FaultLevel >= 3)
 	{
@@ -1561,7 +1562,7 @@ void mode_switch(void)
 	float tempMax;
 	// static uword ms300Cnt = 300;
 
-	VCU_TempMax = _MAX(_MAX(_MAX(OBC_TempModule, DCDC_TempModule), DCAC_TempModule), NTC_TempMax);
+	VCU_TempMax = _MAX(_MAX(OBC_TempModule, DCDC_TempModule), NTC_TempMax);
 
 	//{***************************************************************
 	//{风扇水泵的控制策略
@@ -1605,17 +1606,17 @@ void mode_switch(void)
 	// 	}
 	// }
 
-	if (DCAC_HandSwitch == 1)
-	{
-		VCU_PumpEnable = 1; //{水泵
-		VCU_FanEnable = 1;	//{风扇
-	}
+	// if (DCAC_HandSwitch == 1)
+	// {
+	// 	VCU_PumpEnable = 1; //{水泵
+	// 	VCU_FanEnable = 1;	//{风扇
+	// }
 	//	IO_P8_1 = VCU_PumpEnable;
 	//	IO_P8_2 = VCU_FanEnable;
 	//}风扇水泵的控制策略
 	//}***************************************************************
 
-	if (DCAC_HandSwitch == 0)
+	// if (DCAC_HandSwitch == 0)
 	{ //{手动开关闭合
 
 		// volInput = _MAX(OBG_VolInput, OBS_VolInput);
@@ -1702,7 +1703,7 @@ void mode_switch(void)
 			// VCU_VolRefAllowedOBS = 0;
 			VCU_CurRefAllowedOBC = 0;
 			VCU_VolRefAllowedOBC = 0;
-			VCU_EnableDCAC = DISABLE_DCAC;
+			// VCU_EnableDCAC = DISABLE_DCAC;
 			VCU_EnableDCDC = DISABLE_DCDC;
 			// VCU_ChgCmdOBG = DISABLE_CHG;
 			// VCU_ChgCmdOBS = DISABLE_CHG;
@@ -1733,11 +1734,11 @@ void mode_switch(void)
 					// VCU_VolRefAllowedOBS = 0;
 					VCU_CurRefAllowedOBC = 0;
 					VCU_VolRefAllowedOBC = 0;
-					VCU_EnableDCAC = DISABLE_DCAC; //{可以加热则禁止DCAC输出
+					// VCU_EnableDCAC = DISABLE_DCAC; //{可以加热则禁止DCAC输出
 					if ((OBC_CurOutput) < 2)
 					{ //{OB端电流小于2A时,禁止AC负载端输出
 						VCU_EnableDCDC = DISABLE_DCDC;
-						VCU_EnableDCAC = DISABLE_DCAC;
+						// VCU_EnableDCAC = DISABLE_DCAC;
 						VCU_ChgCmdOBC = DISABLE_CHG;
 						// VCU_ChgCmdOBG = ENABLE_CHG;
 						// VCU_ChgCmdOBS = ENABLE_CHG;
@@ -1809,18 +1810,18 @@ void mode_switch(void)
 				// VCU_CurRefAllowedOBS = _MIN((VCU_CurRefAllowedOBS + 0.01), _MIN(BMS_ContChgCurAllowed / 2.0, OBS_CurLimit));
 			}
 
-			if (BMS_CurOutput > BMS_ContDischgCurAllowed)
-			{
-				VCU_EnableDCAC = DISABLE_DCAC;
-				if (DCAC_SysStatus != RUN)
-				{
-					VCU_EnableDCDC = DISABLE_DCDC;
-				}
-			}
+			// if (BMS_CurOutput > BMS_ContDischgCurAllowed)
+			// {
+			// 	VCU_EnableDCAC = DISABLE_DCAC;
+			// 	if (DCAC_SysStatus != RUN)
+			// 	{
+			// 		VCU_EnableDCDC = DISABLE_DCDC;
+			// 	}
+			// }
 		}
 		else if (VCU_ChgStatusBMS == 0)
 		{ //{高压回路未闭合,禁能所有部件功能并等待可上高压指令,或者是等待手动开关下低压电
-			if (DCAC_HandSwitch == 0)
+			// if (DCAC_HandSwitch == 0)
 			{
 
 				if ((BMS_HVPowerAllow == 1) && (BMS_HeatingLoopStatus == 0) && (VCU_HeatingEnableBMS == 0) && (OBC_VolOutput < 200))
@@ -1846,7 +1847,7 @@ void mode_switch(void)
 							VCU_CurRefAllowedOBC = OBC_CurMax;
 							VCU_VolRefAllowedOBC = 394;
 							VCU_EnableDCDC = ENABLE_DCDC;
-							VCU_EnableDCAC = ENABLE_DCAC;
+							// VCU_EnableDCAC = ENABLE_DCAC;
 							VCU_ChgCmdOBC = ENABLE_HEAT;
 							// VCU_ChgCmdOBG = ENABLE_CHG;
 							// VCU_ChgCmdOBS = ENABLE_CHG;
@@ -1860,7 +1861,7 @@ void mode_switch(void)
 							VCU_CurRefAllowedOBC = 0;
 							VCU_VolRefAllowedOBC = 0;
 							VCU_EnableDCDC = DISABLE_DCDC;
-							VCU_EnableDCAC = DISABLE_DCAC;
+							// VCU_EnableDCAC = DISABLE_DCAC;
 							VCU_ChgCmdOBC = FINISH_CHG;
 							// VCU_ChgCmdOBG = ENABLE_CHG;
 							// VCU_ChgCmdOBS = ENABLE_CHG;
@@ -1873,7 +1874,7 @@ void mode_switch(void)
 									// VCU_VolRefAllowedOBG = 0;
 									// VCU_VolRefAllowedOBS = 0;
 									VCU_EnableDCDC = ENABLE_DCDC;
-									VCU_EnableDCAC = DISABLE_DCAC;
+									// VCU_EnableDCAC = DISABLE_DCAC;
 									VCU_ChgCmdOBC = FINISH_CHG;
 									// VCU_ChgCmdOBG = ENABLE_CHG;
 									// VCU_ChgCmdOBS = ENABLE_CHG;
@@ -1921,7 +1922,7 @@ void mode_switch(void)
 						VCU_CurRefAllowedOBC = 0;
 						VCU_VolRefAllowedOBC = 0;
 						VCU_EnableDCDC = DISABLE_DCDC;
-						VCU_EnableDCAC = DISABLE_DCAC;
+						// VCU_EnableDCAC = DISABLE_DCAC;
 						VCU_ChgCmdOBC = DISABLE_CHG;
 						// VCU_ChgCmdOBG = ENABLE_CHG;
 						// VCU_ChgCmdOBS = ENABLE_CHG;
@@ -1929,13 +1930,14 @@ void mode_switch(void)
 					// BMS 掉线且高压回路断路 且手动开关闭合具备应急供电的功能
 				}
 			}
+
 			if ((BMS_HVPowerLoopStatus == 1) && (BMS_HeatingRequest == 0) && (BMS_HeatingLoopStatus == 0))
 			{ // if ( BMS_HVPowerLoopStatus == 1 ) { //22.8.4 //{高压回路已经闭合  //此处添加是否允许跳转到 模式1
 				// VCU_VolRefAllowedOBG = 0;
 				// VCU_VolRefAllowedOBS = 0;
 				VCU_VolRefAllowedOBC = BMS_VolOutput + 10; //{比高压电池的输出电压大10V
 				VCU_EnableDCDC = ENABLE_DCDC;
-				VCU_EnableDCAC = ENABLE_DCAC;
+				// VCU_EnableDCAC = ENABLE_DCAC;
 				VCU_ChgCmdOBC = DISABLE_CHG;
 				// VCU_ChgCmdOBG = ENABLE_CHG;
 				// VCU_ChgCmdOBS = ENABLE_CHG;
@@ -2019,15 +2021,15 @@ void mode_switch(void)
 
 		if (BMS_SOC <= 10)
 		{
-			VCU_EnableDCAC = DISABLE_DCAC;
+			// VCU_EnableDCAC = DISABLE_DCAC;
 		}
 		if (BMS_SOC <= 5)
 		{
-			VCU_EnableDCAC = DISABLE_DCDC; // TODO @Evan looks like a bug, should it be VCU_EnableDCDC?
+			VCU_EnableDCDC = DISABLE_DCDC; // TODO @Evan looks like a bug, should it be VCU_EnableDCDC?
 		}
 		if ((BMS_SOC >= 15) && (BMS_HVPowerLoopStatus == 1))
 		{
-			VCU_EnableDCAC = ENABLE_DCAC;
+			// VCU_EnableDCAC = ENABLE_DCAC;
 		}
 		if ((BMS_SOC > 10) && (BMS_HVPowerLoopStatus == 1))
 		{
@@ -2057,13 +2059,13 @@ void mode_switch(void)
 		{ //{电池SOC高于20%前不再AC放电  //LYMG---22.11.15
 			if ((BMS_SOC >= 15) && (BMS_CellVolMin > 3180))
 			{ // 3280//OVC--15%--3228mv
-				VCU_EnableDCAC = ENABLE_DCAC;
+				// VCU_EnableDCAC = ENABLE_DCAC;
 				VCU_EnableDCDC = ENABLE_DCDC;
 				VCU_EmptyFlagBMS_class01 = 0;
 			}
 			else
 			{
-				VCU_EnableDCAC = DISABLE_DCAC;
+				// VCU_EnableDCAC = DISABLE_DCAC;
 				VCU_EnableDCDC = ENABLE_DCDC;
 				BMS_SOC = BMS_SOC * 0.5;
 			}
@@ -2073,7 +2075,7 @@ void mode_switch(void)
 		{ //{电池SOC高于20%前不再给电池放电  //LYMG---22.11.15
 			if ((BMS_SOC >= 15) && (BMS_CellVolMin > 3180))
 			{ // 3280//OVC--15%--3280mv
-				VCU_EnableDCAC = ENABLE_DCAC;
+				// VCU_EnableDCAC = ENABLE_DCAC;
 				VCU_EnableDCDC = ENABLE_DCDC;
 				VCU_EmptyFlagBMS_class01 = 0;
 				VCU_EmptyFlagBMS_class02 = 0;
@@ -2081,7 +2083,7 @@ void mode_switch(void)
 			}
 			else
 			{
-				VCU_EnableDCAC = DISABLE_DCAC;
+				// VCU_EnableDCAC = DISABLE_DCAC;
 				VCU_EnableDCDC = DISABLE_DCDC;
 				// BMS_SOC = BMS_SOC*0.5;
 			}
@@ -2147,7 +2149,7 @@ void mode_switch(void)
 			VCU_RunCmdBMS = 0;			   // 直流枪连接，VCU只能发放电状态
 			// VCU_ChgCmdOBG = DISABLE_CHG;   // ENABLE_CHG
 			// VCU_ChgCmdOBS = DISABLE_CHG;   // ENABLE_CHG
-			VCU_EnableDCAC = DISABLE_DCAC; // 直流充电，关闭220V负载用电
+			// VCU_EnableDCAC = DISABLE_DCAC; // 直流充电，关闭220V负载用电
 		}
 		//****************************************充电模式处理**************************************************//
 		if ((BMS_DCChgStatus > 0) || (OBC_CurMax > 0))
@@ -2165,7 +2167,7 @@ void mode_switch(void)
 			VCU_CurRefAllowedOBC = OBC_CurMax;
 			VCU_VolRefAllowedOBC = 360;
 			VCU_EnableDCDC = ENABLE_DCDC;
-			VCU_EnableDCAC = ENABLE_DCAC;
+			// VCU_EnableDCAC = ENABLE_DCAC;
 			VCU_ChgCmdOBC = ENABLE_HEAT;
 			// VCU_ChgCmdOBG = DISABLE_CHG; // ENABLE_CHG
 			// VCU_ChgCmdOBS = DISABLE_CHG; // ENABLE_CHG
@@ -2191,27 +2193,27 @@ void mode_switch(void)
 		if ((BMS_CurOutput < -2) && (BMS_HVPowerLoopStatus == 1))
 			VCU_EnableDCDC = ENABLE_DCDC; //{充电时强制开启DCDC
 	}
-	else
-	{ //{检测到手动开关断开
-		VCU_CurRefAllowedOBC = 0;
-		VCU_VolRefAllowedOBC = 0;
-		// VCU_CurRefAllowedOBG = 0;
-		// VCU_VolRefAllowedOBG = 0;
-		// VCU_CurRefAllowedOBS = 0;
-		// VCU_VolRefAllowedOBS = 0;
-		if ((OBC_CurOutput) < 2)
-		{ // OB端电流小于2A时,禁止AC负载端输出
-			VCU_EnableDCDC = DISABLE_DCDC;
-			VCU_EnableDCAC = DISABLE_DCAC;
-			VCU_ChgCmdOBC = FINISH_CHG;
-			// VCU_ChgCmdOBG = DISABLE_CHG;
-			// VCU_ChgCmdOBS = DISABLE_CHG;
-			if (_ABS(BMS_CurOutput) < 2)
-			{							  //{BMS输出电流小于2A后,下高压
-				VCU_HVPowerEnableBMS = 2; //{主动下高压
-			}
-		}
-	}
+	// else
+	// { //{检测到手动开关断开
+	// 	VCU_CurRefAllowedOBC = 0;
+	// 	VCU_VolRefAllowedOBC = 0;
+	// 	// VCU_CurRefAllowedOBG = 0;
+	// 	// VCU_VolRefAllowedOBG = 0;
+	// 	// VCU_CurRefAllowedOBS = 0;
+	// 	// VCU_VolRefAllowedOBS = 0;
+	// 	if ((OBC_CurOutput) < 2)
+	// 	{ // OB端电流小于2A时,禁止AC负载端输出
+	// 		VCU_EnableDCDC = DISABLE_DCDC;
+	// 		VCU_EnableDCAC = DISABLE_DCAC;
+	// 		VCU_ChgCmdOBC = FINISH_CHG;
+	// 		// VCU_ChgCmdOBG = DISABLE_CHG;
+	// 		// VCU_ChgCmdOBS = DISABLE_CHG;
+	// 		if (_ABS(BMS_CurOutput) < 2)
+	// 		{							  //{BMS输出电流小于2A后,下高压
+	// 			VCU_HVPowerEnableBMS = 2; //{主动下高压
+	// 		}
+	// 	}
+	// }
 
 	VCU_CurRefAllowedOBC = _MIN(VCU_CurRefAllowedOBC, OBC_CurMax);
 	// VCU_CurRefAllowedOBG = _MIN(VCU_CurRefAllowedOBG, OBG_CurLimit);
@@ -2226,11 +2228,11 @@ void mode_switch(void)
 		ChgPos_ConState = 0;
 	}
 
-	if ((ChgPos_ConState == 0) && (BMS_HVPowerLoopStatus == 1) && (DCAC_HandSwitch == 0) && (BMS_ContChgCurAllowed > 0) && (BMS_SOC <= 85)) // SOC-小于85%开启，高于 90% 关闭取力器充电
+	if ((ChgPos_ConState == 0) && (BMS_HVPowerLoopStatus == 1) && (BMS_ContChgCurAllowed > 0) && (BMS_SOC <= 85)) // SOC-小于85%开启，高于 90% 关闭取力器充电
 	{
 		ISG_ChargeEnable = 1;
 	}
-	else if ((ChgPos_ConState == 1) || (BMS_HVPowerLoopStatus == 0) || (DCAC_HandSwitch == 1) || (BMS_ContChgCurAllowed == 0) || (BMS_SOC >= 90))
+	else if ((ChgPos_ConState == 1) || (BMS_HVPowerLoopStatus == 0) || (BMS_ContChgCurAllowed == 0) || (BMS_SOC >= 90))
 	{
 		ISG_ChargeEnable = 0;
 	}
@@ -2290,24 +2292,25 @@ void obc_tx(void)
 
 void dcac_tx(void)
 {
-	if (MS100Cnt >= 10)
-	{
-		//{DCAC_COMMAND
-		TXData[0] = VCU_EnableDCAC;
-		TXData[1] = VCU_PWMEnable;
-		TXData[2] = 0;
-		TXData[3] = 0;
-		TXData[4] = 0;
-		TXData[5] = 0;
-		TXData[6] = 0;
-		TXData[7] = 0;
-		if (CAN_ubRequestMsgObj(22))
-		{ //--------------------发送0x04080000报文
-			CAN_vLoadData(22, TXData);
-			CAN_vTransmit(22);
-		}
-		//}DCAC_COMMAND
-	}
+	
+	// if (MS100Cnt >= 10)
+	// {
+	// 	//{DCAC_COMMAND
+	// 	TXData[0] = VCU_EnableDCAC;
+	// 	TXData[1] = VCU_PWMEnable;
+	// 	TXData[2] = 0;
+	// 	TXData[3] = 0;
+	// 	TXData[4] = 0;
+	// 	TXData[5] = 0;
+	// 	TXData[6] = 0;
+	// 	TXData[7] = 0;
+	// 	if (CAN_ubRequestMsgObj(22))
+	// 	{ //--------------------发送0x04080000报文
+	// 		CAN_vLoadData(22, TXData);
+	// 		CAN_vTransmit(22);
+	// 	}
+	// 	//}DCAC_COMMAND
+	// }
 }
 
 void dcdc_tx(void)
@@ -2368,7 +2371,7 @@ void debug_tx(void)
 
 		TXData[0] = 0;
 		TXData[1] = 0;
-		TXData[2] = VCU_ChgCmd << 6 | EF_NodeLostDCAC << 3 | EF_NodeLostDCDC << 2 | EF_NodeLostOBC << 1 | EF_NodeLostBMS;
+		TXData[2] = VCU_ChgCmd << 6 | EF_NodeLostDCDC << 2 | EF_NodeLostOBC << 1 | EF_NodeLostBMS;
 		TXData[3] = VCU_EmptyFlagBMS_class02 << 2 | VCU_ChgStatusBMS;
 		tmp = (ubyte)VCU_SBOperationDCDC;
 		TXData[4] = tmp;
@@ -2640,7 +2643,7 @@ void MainTask(void)
 
 	bms_rx();
 	obc_rx();
-	dcac_rx();
+	// dcac_rx();
 	dcdc_rx();
 	debug_rx();
 	isg_rx();
@@ -2655,7 +2658,7 @@ void MainTask(void)
 	bms_tx();
 	obc_tx();
 	// gui_tx();
-	dcac_tx();
+	// dcac_tx();
 	dcdc_tx();
 	debug_tx();
 	// isg_tx();
