@@ -2019,7 +2019,7 @@ void mode_switch(void)
 		}
 		if (BMS_SOC <= 5)
 		{
-			VCU_EnableDCAC = DISABLE_DCDC; // TODO looks like a bug, should it be VCU_EnableDCAC?
+			VCU_EnableDCAC = DISABLE_DCDC; // TODO @Evan looks like a bug, should it be VCU_EnableDCDC?
 		}
 		if ((BMS_SOC >= 15) && (BMS_HVPowerLoopStatus == 1))
 		{
