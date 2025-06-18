@@ -28,7 +28,7 @@ void voltage_protect_task(float soc_pct, float min_cell_voltage_mV)
     Prot_UpdateInputs(soc_pct, min_cell_voltage_mV);
     ProtAction_t action = Prot_GetSuggestion();
     // 由调用方根据 action  决定具体执行
-        switch(action) {
+    switch(action) {
         case PROT_ACTION_NORMAL:       /* 正常 */ break;
         case PROT_ACTION_REDUCED_POWER:/* 降功率 */ break;
         case PROT_ACTION_MIN_POWER:    /* 最小功率 */ break;
