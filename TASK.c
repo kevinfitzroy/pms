@@ -2019,7 +2019,7 @@ void mode_switch(void)
 		}
 		if (BMS_SOC <= 5)
 		{
-			VCU_EnableDCAC = DISABLE_DCDC; // TODO @Evan looks like a bug, should it be VCU_EnableDCDC?
+			VCU_EnableDCDC = DISABLE_DCDC; // TODO @Evan looks like a bug, should it be VCU_EnableDCDC?
 		}
 		if ((BMS_SOC >= 15) && (BMS_HVPowerLoopStatus == 1))
 		{
@@ -2061,7 +2061,7 @@ void mode_switch(void)
 			{
 				VCU_EnableDCAC = DISABLE_DCAC;
 				VCU_EnableDCDC = ENABLE_DCDC;
-				BMS_SOC = BMS_SOC * 0.5;
+				// BMS_SOC = BMS_SOC * 0.5;
 			}
 		}
 
@@ -2088,7 +2088,7 @@ void mode_switch(void)
 			if ((OBC_CurMax > 0) || (BMS_DCChgStatus > 0) || ((KEY_ON_EN == 1)))
 			{							  // 有插枪或启动发动机ON档后 VCU发送高压继电器闭合 指令
 				VCU_HVPowerEnableBMS = 1; // 允许上高压指令
-				BMS_SOC = BMS_SOC * 0.5;
+				// BMS_SOC = BMS_SOC * 0.5;
 			}
 			else
 			{
