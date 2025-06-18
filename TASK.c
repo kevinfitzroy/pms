@@ -106,7 +106,7 @@ ubyte VCU_Status02DropCntBMS_OBC = 0;
 
 //{045
 ubyte BMS_HVPowerAllow = 0;
-ubyte BMS_HVPowerLoopStatus = 0;
+ubyte BMS_HVPowerLoopStatus = 0; // 高压回路闭合 0:未闭合 1:闭合
 ubyte BMS_HeatingRequest = 0;
 ubyte BMS_HeatingLoopStatus = 0;
 float BMS_VolOutput = 0;
@@ -114,7 +114,7 @@ float BMS_CurOutput = 0;
 float BMS3_DCBusVoltage = 0;
 float BMS_CapChg2Full = 0;
 ubyte BMS_SOC = 0;
-ubyte BMS_DCChgStatus = 0;
+ubyte BMS_DCChgStatus = 0; // 大于 0 表示直流充电 ; 0 表示直流充电未开始
 ubyte BMS_fault_code = 0;
 
 ubyte ISG_ChargeEnable = 0;
@@ -2034,12 +2034,12 @@ void mode_switch(void)
 		//****************************************低电量保护切断继电器**************************************************//
 
 		//{通过最低单体电池电压来判定负载DCAC, DCDC开启闭合的合适条件
-		if ((BMS_CellVolMin <= 3150) && (BMS_HVPowerLoopStatus == 1)) // 3250{单体电压低一级故障报警阈值,停止使用220V放电
+		if ((BMS_CellVolMin <= 3100) && (BMS_HVPowerLoopStatus == 1)) // 3250{单体电压低一级故障报警阈值,停止使用220V放电
 		{
 			VCU_EmptyFlagBMS_class01 = 1;
 		}
 
-		if ((BMS_CellVolMin <= 3100) && (BMS_HVPowerLoopStatus == 1)) // 3200{单体电压低二级故障报警，关闭所有负载必须先给电池充电
+		if ((BMS_CellVolMin <= 2900) && (BMS_HVPowerLoopStatus == 1)) // 3200{单体电压低二级故障报警，关闭所有负载必须先给电池充电
 		{
 			if (ms3000Cnt >= 300)
 				VCU_EmptyFlagBMS_class02 = 1;
