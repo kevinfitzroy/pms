@@ -1116,7 +1116,7 @@ void error_check(void)
 	if (EF_Status01LostBMS && EF_CellInfoLostBMS && EF_CurInfoLostBMS && EF_Status02LostBMS && EF_FaultInfoLostBMS && EF_TempInfoLostBMS && EF_NorminalInfoLostBMS)
 	{
 		// ErrorCode |= (uword)0x01 << 9;       //0X0000200
-		// EF_NodeLostBMS = 1;
+		// EF_NodeLostBMS = 1; //TODO @Evan EF_NodeLostBMS has never been assigned
 	}
 	else
 	{
