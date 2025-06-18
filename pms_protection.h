@@ -8,7 +8,7 @@ extern "C" {
 #endif
 
 /**
- * Protection actions suggested by the module
+ * Protection actions suggested by the module.
  */
 typedef enum {
     PROT_ACTION_NORMAL = 0,       // No restrictions
@@ -18,13 +18,14 @@ typedef enum {
 } ProtAction_t;
 
 /**
- * Single protection rule: if either soc <= soc_threshold
- * or voltage <= volt_threshold, suggest this action.
+ * Single protection rule: if either SOC <= soc_threshold
+ * or cell voltage <= volt_threshold_mV, suggest this action.
  * Rules should be ordered by descending severity (shutdown first).
+ * volt_threshold_mV is in millivolts (mV).
  */
 typedef struct {
-    float soc_threshold;      // e.g. 5.0 for 5%% SOC
-    float volt_threshold;     // e.g. 2.9 for 2.9V per cell
+    float soc_threshold;        // e.g. 5.0 for 5%% SOC
+    float volt_threshold_mV;    // e.g. 2800.0 for 2.8V (2800 mV)
     ProtAction_t action;
 } ProtRule_t;
 
@@ -49,9 +50,9 @@ void Prot_Init(const ProtConfig_t *cfg);
 /**
  * Feed latest measurements to module. Values will be filtered.
  * soc: state of charge (0..100)
- * cell_voltage: minimum cell voltage in volts
+ * cell_voltage_mV: minimum cell voltage in millivolts
  */
-void Prot_UpdateInputs(float soc, float cell_voltage);
+void Prot_UpdateInputs(float soc, float cell_voltage_mV);
 
 /**
  * Get latest suggested action based on filtered inputs and rules.
